@@ -1,0 +1,22 @@
+<template>
+	<t t-name="DiagramControllView">
+		<div class="o_form_renderer h-100 w-100 o_form_saved">
+			<Layout display="props.display" className="props.className">
+				<t t-name="DiagramPlusView.buttons">
+					<div t-ref="controllbuttons" t-if="this.canCreate" >
+						<button class="btn btn-primary fa fa-save fa-2 o_diagram_plus_save_button" type="button" t-on-click="this._flowsave"> Check/Save Flow</button>
+						<button class="btn btn-primary fa fa-download fa-2 o_diagram_plus_downbpmn_button" type="button" t-on-click="this._downbpmn"> Download BPMN</button>
+						<button class="btn btn-primary fa fa-arrow-down fa-2 o_diagram_plus_downsvg_button" type="button" t-on-click="this._downsvg"> Download SVG</button>
+						<button class="btn btn-primary fa fa-upload fa-2 o_diagram_plus_importbpmn_button" type="button" t-on-click="this._importbpmn"> Import BPMN</button>
+					</div>
+				</t>
+				<t t-name="DiagramPlusView" >
+					<div t-ref="root" id="canvas" class="o_diagram_plus" style="width: 100%; height: 100%; margin-right: 2px; overflow: hidden;" />
+					<div style="display:none;height:0">
+						<input type="file" name="image" id="fileSelector" t-on-change="processFileSelected" />
+					</div>
+				</t>
+			</Layout>
+		</div>
+	</t>
+</template>

@@ -1,0 +1,37 @@
+.o_diagram_plus_view,
+.o_diagram_plus {
+    height: 100%;
+    background-color: white;
+
+    .o_diagram_plus_header {
+        padding-top: 16px;
+        padding-right: 16px;
+        padding-bottom: 16px;
+        padding-left: 16px;
+
+        > span {
+            display: block;
+            text-align: justify;
+        }
+    }
+    .tipBox {
+  		width: 200px;
+  		background: gold;
+  		border-radius: 4px;
+  		border: 1px solid #ebeef5;
+  		padding: 12px;
+  		font-weight: 700;
+      margin-right: 0px;
+		}
+}
+
+.oe_disabled {
+	background:#dddddd;
+	color: blue;
+  pointer-events:none;
+}
+
+.custom-radio .custom-control-input:disabled:checked ~ .custom-control-label::before {
+  background-color: #e9ecef;
+  background: #008DCA;
+}

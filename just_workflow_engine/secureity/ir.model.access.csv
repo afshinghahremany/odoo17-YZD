@@ -1,0 +1,9 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_workflow_base,access_workflow_base,just_workflow_engine.model_workflow_base,base.group_user,1,1,1,1
+access_workflow_node,access_workflow_node,just_workflow_engine.model_workflow_node,base.group_user,1,1,1,1
+access_workflow_trans,access_workflow_trans,just_workflow_engine.model_workflow_trans,base.group_user,1,1,1,1
+access_workflow_buttons,access_workflow_buttons,just_workflow_engine.model_workflow_buttons,base.group_user,1,1,1,1
+access_log_workflow_trans,access_log_workflow_trans,just_workflow_engine.model_log_workflow_trans,base.group_user,1,1,1,0
+access_define_workflow_users,access_define_workflow_users,just_workflow_engine.model_workflow_trans_define_users,base.group_user,1,1,1,1
+access_odoo_workflow_node_field,odoo_workflow_node_field,just_workflow_engine.model_odoo_workflow_node_field,base.group_user,1,1,1,1
+access_wizard_workflow_message,access_wizard_workflow_message,just_workflow_engine.model_wizard_workflow_message,base.group_user,1,1,1,1

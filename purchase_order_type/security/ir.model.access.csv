@@ -1,0 +1,4 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_purchase_order_type,purchase.order.type,model_purchase_order_type,purchase.group_purchase_user,1,0,0,0
+access_purchase_order_type_manager,purchase.order.type manager,model_purchase_order_type,purchase.group_purchase_manager,1,1,1,1
+access_purchase_order_type_stage_user,purchase.order.type.stage user,model_purchase_order_type_stage,base.group_user,1,1,1,1

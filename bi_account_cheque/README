@@ -1,0 +1,7 @@
+=> 16.0.0.1 : 1. Adding New features of dynamic cheque on outgoing cheque. 
+              2. Directly create incoming cheque for customer from invoice  & outgoing cheque for vendor from bills.
+
+=> 16.0.0.2 : 1. Adding account_accountant in depends.
+              2. Changed menu directory Cheque Management to Accounting menu.
+
+=> 16.0.0.3 : 1. Adding Cheque Date in Dynamic Cheque Report.

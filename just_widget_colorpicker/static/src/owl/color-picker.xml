@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<templates>
+	<t t-name="FieldColorPicker">
+	    <button default-color="#ff0000" class="font-color color_picker_field" t-ref="justcolor" t-on-click="openColorPicker" style="background-color: rgb(255, 255, 255); width:30px;height:20px;"></button>
+		<div class="colorpicker-container" tabindex="-1" style="width:200px;" t-ref="justscope" t-on-click="keepPickerOpen">
+			<div class="colorpicker-toolbar">
+				<div class="colorpicker-preview" t-att-style="'background-color:'+state.color+';border-color:'+state.color" >Preview</div>
+				<div class="colorpicker-clear" t-on-click="closeColorPicker">Close</div>
+			</div>
+			<div class="colorpicker-title" t-if="state.latestColor.length > 0">Last Color</div>
+			<div class="colorpicker-latestcolor colorpicker-colors"> <span class="colorpicker-colors-item"  t-on-click="selectColorAndClose" t-on-mouseover="previewColor" 
+			     t-foreach="state.latestColor" t-as="color"  t-key="color_index" t-att-style="'background-color:'+color+';border-color:'+color" ></span>
+
+			</div>
+			<div class="colorpicker-title">Common Color</div>
+			<div class="colorpicker-commoncolor">
+				<div class="colorpicker-colors colorpicker-colors-line" t-foreach="state.commonColor" t-as="line"  t-key="line_index"> 
+				     <span class="colorpicker-colors-item" t-foreach="line" t-as="color"  t-key="color_index" t-att-style="'background-color:'+color+';border-color:'+color" 
+					       t-on-click="selectColorAndClose" t-on-mouseover="previewColor"></span>
+				</div>
+			</div>
+			<div class="colorpicker-title">Standard Color</div>
+			<div class="colorpicker-standardcolor colorpicker-colors">	<span class="colorpicker-colors-item" t-on-click="selectColorAndClose" t-on-mouseover="previewColor" 
+			     t-foreach="state.standardColor" t-as="color"  t-key="color_index" t-att-style="'background-color:'+color+';border-color:'+color" ></span>
+
+			</div>
+			<div class="colorpicker-title colorpicker-morecolor" t-if="isSupportNativeColorPicker">
+				<label t-att-for="'native-color-picker-'+ state.pickerInputId">More Color</label>
+				<input t-att-id="'native-color-picker-'+ state.pickerInputId" class="native-color-picker" type="color" model="nativeColor" t-on-change="nativeColor"/>
+			</div>
+		</div>
+	</t>
+</templates>

@@ -1,0 +1,22 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>
+    <data noupdate="0">
+        <!-- Add you code here -->
+        <record id='stage_coordination' model='todo.mail.activity.stage'>
+            <field name="name">协同</field>
+            <field name="sequence">1</field>
+        </record>
+        <record id='stage_approve' model='todo.mail.activity.stage'>
+            <field name="name">Workflow Approve</field>
+            <field name="sequence">2</field>
+        </record>
+        <record id='stage_workflow' model='todo.mail.activity.stage'>
+            <field name="name">Todo Task</field>
+            <field name="sequence">3</field>
+        </record>
+        <record id='stage_state' model='todo.mail.activity.stage'>
+            <field name="name">Event Detect</field>
+            <field name="sequence">4</field>
+        </record>
+    </data>
+</odoo>

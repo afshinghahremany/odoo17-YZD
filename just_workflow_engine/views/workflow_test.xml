@@ -1,0 +1,22 @@
+<odoo>
+	<data>
+		<record id="work_flow_test_form" model="ir.ui.view">
+			<field name="name">商机</field>
+			<field name="model">crm.lead</field>
+			<field name="inherit_id" ref="crm.crm_lead_view_form" />
+			<field name="arch" type="xml">
+				<xpath expr="//notebook/page[@name='internal_notes']" position="before">
+					<page string="Workflwo Demo">
+						<group>
+							<field name="project_category"/>
+							<field name="has_Standby"/>
+							<field name="order_mode"/>
+							<field name="field_inspection"/>
+							<field name="tower_maintenance"/>
+						</group>
+					</page>
+				</xpath>
+			</field>
+		</record>
+	</data>
+</odoo>

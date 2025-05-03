@@ -1,0 +1,68 @@
+<template>
+	<t t-name="just_workflow_engine.flowlogs" owl="1">
+		<div>
+			<div class="o_ChatterContainer flex-grow-1 d-flex overflow-auto">
+				<div class="o_Chatter position-relative flex-grow-1 flex-column d-flex w-100 bg-view">
+					<div class="o_Chatter_scrollPanel overflow-auto">
+						<div class="o_ThreadView position-relative d-flex flex-column bg-100 o_Chatter_thread">
+							<div class="o_ThreadView_bottomPart d-flex flex-grow-1">
+								<div class="o_ThreadView_core d-flex flex-column flex-grow-1" t-ref="flowLogs">
+									<div class="o_MessageList_item o_MessageList_isLoadingMore">
+										<i class="o_MessageList_isLoadingMoreIcon fa fa-spin fa-circle-o-notch" />Loading...
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</t>
+	<t t-name="just_workflow_engine.showlogs" owl="1">
+		<div class="o_MessageList o_ThreadView_messageList">
+			<t t-set="current_day" t-value="0" />
+			<t t-foreach="logs" t-as="messageView"  t-key="messageView.id">
+				<t t-set="message_day" t-value="messageView.dateDay" />
+				<t t-if="current_day != message_day">
+					<div class="o_MessageList_separator o_MessageList_separatorDate o_MessageList_item pt-4">
+						<hr class="o_MessageList_separatorLine" />
+						<span class="o_MessageList_separatorLabel o_MessageList_separatorLabelDate">
+							<t t-esc="message_day"/>
+						</span>
+						<hr class="o_MessageList_separatorLine" />
+						<t t-set="current_day" t-value="message_day" />
+					</div>
+				</t>
+				<div class="o-mail-Message position-relative undefined o-selfAuthored py-1 mt-2 px-3" role="group" >
+					<div class="o-mail-Message-core position-relative d-flex flex-shrink-0">
+						<div class="o-mail-Message-sidebar d-flex flex-shrink-0">
+							<div class="o-mail-Message-avatarContainer position-relative bg-view cursor-pointer">
+								<img class="o-mail-Message-avatar w-100 h-100 rounded o_object_fit_cover o_redirect cursor-pointer" t-att-src="messageView.avatar" alt="Avatar" />
+							</div>
+						</div>
+						<div class="w-100 o-min-width-0">
+							<div class="o-mail-Message-header d-flex flex-wrap align-items-baseline mb-1 lh-1">
+								<span class="o-mail-Message-author cursor-pointer">
+									<strong class="me-1 text-truncate" role="button" tabindex="0" title="Open chat">
+										<t t-esc="messageView.username" />
+									</strong>
+								</span>
+								<small class="o-mail-Message-date text-muted opacity-75 me-2" >
+									<t t-esc="messageView.dateFromNow" />
+								</small>
+								<span class="o-mail-MessageSeenIndicator position-relative d-flex opacity-50 o-all-seen text-primary ms-1"></span>
+							</div>
+							<div class="position-relative d-flex">
+								<div class="o-mail-Message-content o-min-width-0">
+									<div class="o-mail-Message-textContent position-relative d-flex">
+										<div class="o-mail-Message-body text-break mb-0 w-100"><t t-esc="messageView.note" /></div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</t>
+		</div>
+	</t>
+</template>

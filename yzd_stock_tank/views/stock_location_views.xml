@@ -1,0 +1,26 @@
+<odoo>
+    <record id="view_location_form_inherit_yzd" model="ir.ui.view">
+        <field name="name">stock.location.form.inherit.yzd</field>
+        <field name="model">stock.location</field>
+        <field name="inherit_id" ref="stock.view_location_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//sheet" position="inside">
+                <group string="Tank Capacities">
+                    <group>
+                        <field name="yzd_capacity_nominal"/>
+                    </group>
+                    <group>
+                        <field name="yzd_capacity_actual"/>
+                        <field name="yzd_supplier_partner_id" 
+                               options="{'no_create': True, 'no_edit': True}"
+                               force_save="1"
+                               modifiers="{
+                                   'readonly': [('usage', '!=', 'supplier')],
+                                   'invisible': [('usage', '!=', 'supplier')]
+                               }"/>
+                    </group>
+                </group>
+            </xpath>
+        </field>
+    </record>
+</odoo>

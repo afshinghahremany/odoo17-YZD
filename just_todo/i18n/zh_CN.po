@@ -1,0 +1,146 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* just_todo
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 15.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-02-02 04:29+0000\n"
+"PO-Revision-Date: 2021-02-02 12:48+0800\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: \n"
+"Language: zh_CN\n"
+"X-Generator: Poedit 2.4.2\n"
+
+#. module: just_todo
+#: model:ir.ui.menu,name:just_todo.menu_root
+#: model:ir.actions.act_window,name:just_todo.hn_todo_activity_form
+#: model:ir.actions.act_window,name:just_todo.hn_todo_activity_tree
+#: model:ir.actions.act_window,name:just_todo.hn_todo_activity_kanban
+msgid "My Todo"
+msgstr "我的待办"
+
+#. module: just_todo
+#: model:ir.ui.menu,name:just_todo.menu_1
+#: model:ir.actions.act_window,name:just_todo.action_hn_todo_activity_todo
+#: model:todo.mail.activity.stage,name:just_todo.stage_workflow
+msgid "Todo Task"
+msgstr "待办事项"
+
+#. module: just_todo
+#: model:ir.ui.menu,name:just_todo.menu_2
+#: model:ir.actions.act_window,name:just_todo.action_hn_todo_activity_send
+msgid "Send Task"
+msgstr "已发事项"
+
+#. module: just_todo
+#: model:ir.ui.menu,name:just_todo.menu_3
+#: model:ir.actions.act_window,name:just_todo.action_hn_todo_activity_complete
+msgid "Done Task"
+msgstr "已办事项"
+
+#. module: just_todo
+#: model:todo.mail.activity.stage,name:just_todo.stage_approve
+msgid "Workflow Approve"
+msgstr "流程评审"
+
+#. module: just_todo
+#: model:todo.mail.activity.stage,name:just_todo.stage_state
+msgid "Event Detect"
+msgstr "事件监控"
+
+#. module: just_todo
+#: model:ir.model.fields,field_description:just_todo.field_date_deadline
+msgid "deadline"
+msgstr "需求完成时间"
+
+#. module: just_todo
+#: model:ir.model.fields.selection,name:just_todo.selection__todo_activity__note_type
+msgid "Review comments"
+msgstr "审核意见"
+
+#. module: just_todo
+#: model:ir.model.fields.selection,name:just_todo.selection__todo_activity__note_type
+msgid "Countersign opinion"
+msgstr "会签意见"
+
+#. module: just_todo
+#: model:ir.model.fields.selection,name:just_todo.selection__todo_activity__note_type
+msgid "Additional comments"
+msgstr "加签意见"
+
+#. module: just_todo
+#: model_terms:ir.ui.view,arch_db:just_todo.hn_todo_activity_kanban
+msgid "read"
+msgstr "已读"
+
+#. module: just_todo
+#: model_terms:ir.ui.view,arch_db:just_todo.hn_todo_activity_kanban
+msgid "unread"
+msgstr "未读"
+
+#. module: just_todo
+#: code:just_todo/views/todo_activity.xml:0
+#: code:just_todo/models/todo_mail_activity.py:0
+msgid "Discuss"
+msgstr "沟通"
+
+#. module: just_todo
+#: code:just_todo/views/todo_activity.xml:0
+msgid "Action"
+msgstr "执行"
+
+#. module: just_todo
+#: code:just_todo/views/todo_activity.xml:0
+msgid "<span>deadline：</span>"
+msgstr "<span>需求完成时间：</span>"
+
+#. module: just_todo
+#: code:just_todo/views/todo_activity.xml:0
+msgid "<span class='user-lable red'>S</span>"
+msgstr "<span class='user-lable green'>发</span>"
+
+#. module: just_todo
+#: code:just_todo/views/todo_activity.xml:0
+msgid "<span class='user-lable green'>D</span>"
+msgstr "<span class='user-lable green'>执</span>"
+
+#. module: just_todo
+#: code:just_todo/views/todo_activity.xml:0
+msgid "View"
+msgstr "查看"
+
+#. module: just_todo
+#: code:just_todo/models/todo_mail_activity.py:0
+#, python-format
+msgid "The corresponding module {record_id._name} is not found"
+msgstr "未找到相应的模型{record_id._name}, 或相应模块未安装"
+
+#. module: just_todo
+#: code:just_todo/models/todo_mail_activity.py:0
+#, python-format
+msgid "Stage parameter error, corresponding stage type {stage} not found"
+msgstr "阶段参数错误，未找到相应的阶段类型{stage}"
+
+#. module: just_todo
+#: code:just_todo/models/todo_mail_activity.py:0
+#, python-format
+msgid "View parameter error, view {view_id} not found"
+msgstr "视图参数错误，未找到视图 {view_id}"
+
+#. module: just_todo
+#: code:just_todo/models/todo_mail_activity.py:0
+#, python-format
+msgid "Menu parameter error, menu {menu_id} not found"
+msgstr "菜单参数错误，未找到菜单 {menu_id}"
+
+#. module: just_todo
+#: code:just_todo/models/todo_mail_activity.py:0
+#, python-format
+msgid "The executor and title need to specify either one"
+msgstr "执行人和title需指定任意一个"

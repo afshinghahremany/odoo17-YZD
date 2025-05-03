@@ -1,0 +1,3 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_planning_slot_bom_line_all,planning.slot.bom.line.all,model_planning_slot_bom_line,,1,1,1,1
+access_planning_slot_component_line_all,planning.slot.component.line.all,model_planning_slot_component_line,,1,1,1,1

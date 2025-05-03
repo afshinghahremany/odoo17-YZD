@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="wizard_workflow_message_form" model="ir.ui.view">
+            <field name="name">Message wizard</field>
+            <field name="model">wizard.workflow.message</field>
+            <field name="arch" type="xml">
+                <form string="Note">
+                    <group string="Review logs">
+                        <field name="logType" invisible="1" />
+                        <field name="id" widget="flowLogs" nolabel="1" />
+                        <group />
+                    </group>
+                    <group string="Review comments" invisible="logType != 1" >
+                        <group>
+                            <field name="note_type" required="1" nolabel="1" widget="radio" options="{'horizontal': True}"/><group />
+                        </group>
+                        <group>
+                            <field name="back_to" invisible="note_type != 'Back'" nolabel="1" /><group />
+                        </group>
+                    </group>
+                    <group  invisible="logType != 1" >
+                        <field name="name" required="1" nolabel="1"/>
+                        <group />
+                    </group>
+                    <group string="Countersign" invisible="logType != 1">
+                        <field name="user_ids" nolabel="1" widget="many2many_tags" placeholder="Countersign people"/>
+                        <group />
+                    </group>
+                    <footer>
+                        <button name="apply" class="oe_highlight" type='object' string="Submit" invisible="logType != 1"/>
+                        <button special="cancel" class="oe_highlight" string="Cancel"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+        <record id="wizard_workflow_message_action" model="ir.actions.act_window">
+            <field name="name">wk.wizard.message</field>
+            <field name="res_model">wizard.workflow.message</field>
+            <field name="view_mode">form</field>
+            <field name="target">new</field>
+        </record>
+    </data>
+</odoo>

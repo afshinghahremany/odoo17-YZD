@@ -1,0 +1,3 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+hn_mail_activity_stage,hn_mail_activity_stage,model_todo_mail_activity_stage,base.group_user,1,1,1,1
+hn_todo_activity,hn_todo_activity,model_todo_activity,base.group_user,1,1,1,1

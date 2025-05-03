@@ -1,0 +1,987 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* just_workflow_engine
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 15.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-02-02 04:29+0000\n"
+"PO-Revision-Date: 2021-02-02 12:48+0800\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: \n"
+"Language: zh_CN\n"
+"X-Generator: Poedit 2.4.2\n"
+
+#. module: just_workflow_engine
+#: model:ir.model.fields,help:just_workflow_engine.field_workflow_node__name
+msgid "A node is basic unit of Workflow"
+msgstr "节点是工作流的基本单元"
+
+#. module: just_workflow_engine
+#: model:ir.model.fields,help:just_workflow_engine.field_workflow_trans__name
+msgid "A transfer is from a node to other node"
+msgstr "转移是从一个节点到另一个节点"
+
+#. module: just_workflow_engine
+#: model:ir.model.fields,field_description:just_workflow_engine.field_workflow_trans__arg
+msgid "Action Args"
+msgstr "动作参数 "
+
+#. module: just_workflow_engine
+#: model:ir.model.fields,field_description:just_workflow_engine.field_workflow_trans__action_type
+msgid "Action Type"
+msgstr "动作类型"
+
+#. module: just_workflow_engine
+#: model_terms:ir.ui.view,arch_db:just_workflow_engine.workflow_node_form_view
+#: model_terms:ir.ui.view,arch_db:just_workflow_engine.workflow_trans_form_view
+msgid "Actions"
+msgstr "动作"
+
+#. module: just_workflow_engine
+#: model:ir.model.fields,field_description:just_workflow_engine.field_log_workflow_trans__active
+#: model:ir.model.fields,field_description:just_workflow_engine.field_workflow_base__active
+msgid "Active"
+msgstr "活跃"
+
+#. module: just_workflow_engine
+#: model:ir.model.fields,field_description:just_workflow_engine.field_workflow_base__view_id
+msgid "Add View"
+msgstr "添加视图"
+
+#. module: just_workflow_engine
+#: model:ir.model.fields,field_description:just_workflow_engine.field_workflow_base__allow_reset
+msgid "Allow to reset the Workflow"
+msgstr "允许重置工作流"
+
+#. module: just_workflow_engine
+#: model_terms:ir.ui.view,arch_db:just_workflow_engine.wizard_workflow_message_form
+msgid "Submit"
+msgstr "提交"
+
+#. module: just_workflow_engine
+#: model_terms:ir.ui.view,arch_db:just_workflow_engine.view_form_odoo_workflow_node_field
+msgid "Attributes"
+msgstr "属性"
+
+#. module: just_workflow_engine
+#: model_terms:ir.ui.view,arch_db:just_workflow_engine.wizard_workflow_message_form
+msgid "Cancel"
+msgstr "取消"
+
+#. module: just_workflow_engine
+#: model_terms:ir.ui.view,arch_db:just_workflow_engine.workflow_base_form_view
+msgid "Cancel WorkFollow Setting"
+msgstr "停用工作流"
+
+#. module: just_workflow_engine
+#: model:ir.model.fields,field_description:just_workflow_engine.field_workflow_node__code
+msgid "Code"
+msgstr "编号"
+
+#. module: just_workflow_engine
+#: model:ir.model.fields,field_description:just_workflow_engine.field_workflow_trans__condition
+msgid "Condition"
+msgstr "条件"
+
+#. module: just_workflow_engine
+#: model:ir.model.fields,field_description:just_workflow_engine.field_workflow_trans__notify
+msgid "Notify"
+msgstr "知会信息"
+
+#. module: just_workflow_engine
+#: model:ir.model.fields,field_description:just_workflow_engine.field_workflow_node__task_condition
+msgid "task condition"
+msgstr "任务结束条件"
+
+#. module: just_workflow_engine
+#: model:ir.model.fields,field_description:just_workflow_engine.field_workflow_node__task_model
+msgid "task model"
+msgstr "待办模型名称"
+
+#. module: just_workflow_engine
+#: model:ir.model.fields,field_description:just_workflow_engine.field_workflow_node__event_need
+msgid "Calender Event&Notify"
+msgstr "日历事件及知会"
+
+#. module: just_workflow_engine
+#: model:ir.model.fields,field_description:just_workflow_engine.field_workflow_node__event_users
+msgid "Notify Users"
+msgstr "知会用户"
+
+#. module: just_workflow_engine
+#: model:ir.model.fields,field_description:just_workflow_engine.field_log_workflow_trans__create_uid
+#: model:ir.model.fields,field_description:just_workflow_engine.field_odoo_workflow_node_field__create_uid
+#: model:ir.model.fields,field_description:just_workflow_engine.field_wizard_workflow_message__create_uid
+#: model:ir.model.fields,field_description:just_workflow_engine.field_workflow_base__create_uid
+#: model:ir.model.fields,field_description:just_workflow_engine.field_workflow_node__create_uid
+#: model:ir.model.fields,field_description:just_workflow_engine.field_workflow_trans__create_uid
+msgid "Created by"
+msgstr "创建人"
+
+#. module: just_workflow_engine
+#: model:ir.model.fields,field_description:just_workflow_engine.field_log_workflow_trans__create_date
+#: model:ir.model.fields,field_description:just_workflow_engine.field_odoo_workflow_node_field__create_date
+#: model:ir.model.fields,field_description:just_workflow_engine.field_wizard_workflow_message__create_date
+#: model:ir.model.fields,field_description:just_workflow_engine.field_workflow_base__create_date
+#: model:ir.model.fields,field_description:just_workflow_engine.field_workflow_node__create_date
+#: model:ir.model.fields,field_description:just_workflow_engine.field_workflow_trans__create_date
+msgid "Created on"
+msgstr "创建时间"
+
+#. module: just_workflow_engine
+#: model:ir.actions.act_window,name:just_workflow_engine.action_workflow_base_view
+#: model_terms:ir.ui.view,arch_db:just_workflow_engine.view_workflow_base_diagram
+#: model_terms:ir.ui.view,arch_db:just_workflow_engine.workflow_base_form_view
+#: model_terms:ir.ui.view,arch_db:just_workflow_engine.workflow_base_tree_view
+msgid "Custom WorkFollow"
+msgstr "定义工作流"
+
+#. module: just_workflow_engine
+#: model:ir.actions.act_window,name:just_workflow_engine.action_workflow_node_view
+#: model_terms:ir.ui.view,arch_db:just_workflow_engine.workflow_node_form_view
+#: model_terms:ir.ui.view,arch_db:just_workflow_engine.workflow_node_tree_view
+msgid "Custom WorkFollow Node"
+msgstr "自定义工作流节点"
+
+#. module: just_workflow_engine
+#: model_terms:ir.ui.view,arch_db:just_workflow_engine.workflow_trans_form_view
+msgid "Custom WorkFollow Trans"
+msgstr "自定义反向工作流"
+
+#. module: just_workflow_engine
+#: model_terms:ir.ui.view,arch_db:just_workflow_engine.workflow_trans_tree_view
+msgid "Custom WorkFollow Transfer"
+msgstr "自定义工作流转移"
+
+#. module: just_workflow_engine
+#: model:ir.model.fields,field_description:just_workflow_engine.field_workflow_base__show_states
+msgid "Default  States to display"
+msgstr "默认显示状态"
+
+#. module: just_workflow_engine
+#: model:ir.model.fields,field_description:just_workflow_engine.field_workflow_base__default_state
+msgid "Default Workflow State value"
+msgstr "默认工作流状态值"
+
+#. module: just_workflow_engine
+#: model:ir.model.fields,field_description:just_workflow_engine.field_log_workflow_trans__display_name
+#: model:ir.model.fields,field_description:just_workflow_engine.field_odoo_workflow_node_field__display_name
+#: model:ir.model.fields,field_description:just_workflow_engine.field_wizard_workflow_message__display_name
+#: model:ir.model.fields,field_description:just_workflow_engine.field_workflow_base__display_name
+#: model:ir.model.fields,field_description:just_workflow_engine.field_workflow_node__display_name
+#: model:ir.model.fields,field_description:just_workflow_engine.field_workflow_trans__display_name
+msgid "Display Name"
+msgstr "显示名称"
+
+#. module: just_workflow_engine
+#: model:ir.model.fields,field_description:just_workflow_engine.field_workflow_node__event_users
+msgid "Event Users"
+msgstr "事件用户"
+
+#. module: just_workflow_engine
+#: model:ir.model.fields,field_description:just_workflow_engine.field_odoo_workflow_node_field__name
+msgid "Field"
+msgstr "字段"
+
+#. module: just_workflow_engine
+#: model:ir.model.fields,field_description:just_workflow_engine.field_workflow_base__field_id
+msgid "Field Workflow-State"
+msgstr "工作流状态字段"
+
+#. module: just_workflow_engine
+#: model:ir.model.fields,field_description:just_workflow_engine.field_workflow_node__field_ids
+#: model_terms:ir.ui.view,arch_db:just_workflow_engine.workflow_node_form_view
+msgid "Fields"
+msgstr "字段"
+
+#. module: just_workflow_engine
+#: model:ir.model.fields,field_description:just_workflow_engine.field_workflow_node__need_note
+msgid "Force note"
+msgstr "需要填写意见"
+
+#. module: just_workflow_engine
+#: model:ir.model.fields,field_description:just_workflow_engine.field_workflow_trans__node_from
+msgid "From Node"
+msgstr "从节点"
+
+#. module: just_workflow_engine
+#: model_terms:ir.ui.view,arch_db:just_workflow_engine.workflow_node_form_view
+msgid "Approve"
+msgstr "审批"
+
+#. module: just_workflow_engine
+#: model_terms:ir.ui.view,arch_db:just_workflow_engine.workflow_node_form_view
+msgid "Todo Task"
+msgstr "待办任务"
+
+#. module: just_workflow_engine
+#: model:ir.model.fields,field_description:just_workflow_engine.field_workflow_node__trans_type
+msgid "Trans Type"
+msgstr "执行类型"
+
+#. module: just_workflow_engine
+#: model:ir.model.fields.selection,name:just_workflow_engine.selection__workflow_node__trans_type__auto
+msgid "auto process"
+msgstr "自动执行"
+
+#. module: just_workflow_engine
+#: model:ir.model.fields.selection,name:just_workflow_engine.selection__workflow_node__trans_type__note
+msgid "need note"
+msgstr "审核意见"
+
+#. module: just_workflow_engine
+#: model:ir.model.fields.selection,name:just_workflow_engine.selection__workflow_node__trans_type__task
+msgid "todo task"
+msgstr "待办任务"
+
+#. module: just_workflow_engine
+#: model_terms:ir.ui.view,arch_db:just_workflow_engine.workflow_node_form_view
+#: model:ir.model.fields.selection,name:just_workflow_engine.selection__workflow_node__trans_type__time
+msgid "Event Detection"
+msgstr "事件监控"
+
+#. module: just_workflow_engine
+#: model:ir.model.fields.selection,name:just_workflow_engine.selection__wizard_workflow_message__note_type__agree
+#: code:just_workflow_engine/wizard/wizard_workflow.py:0
+msgid "Agree"
+msgstr "同意"
+
+#. module: just_workflow_engine
+#: model:ir.model.fields.selection,name:just_workflow_engine.selection__wizard_workflow_message__note_type__back
+msgid "Refuse and Back To"
+msgstr "不同意，退回到节点-> "
+
+#. module: just_workflow_engine
+#: model:ir.model.fields.selection,name:just_workflow_engine.selection__wizard_workflow_message__back_to__start
+#: code:just_workflow_engine/wizard/wizard_workflow.py:0
+msgid "Workflow Restart"
+msgstr "退回，重新发起流程"
+
+#. module: just_workflow_engine
+#: model:ir.model.fields.selection,name:just_workflow_engine.selection__wizard_workflow_message__back_to__previous
+#: code:just_workflow_engine/wizard/wizard_workflow.py:0
+msgid "Previous Node"
+msgstr "退回上一评审节点"
+
+#. module: just_workflow_engine
+#: model:ir.model.fields.selection,name:just_workflow_engine.selection__wizard_workflow_message__note_type__stop
+msgid "Refuse and Stop"
+msgstr "不同意，终止流程"
+
+#. module: just_workflow_engine
+#: model:ir.model.fields,field_description:just_workflow_engine.field_workflow_base__reset_group
+msgid "Group Reset"
+msgstr "组重置"
+
+#. module: just_workflow_engine
+#: model:ir.model.fields,field_description:just_workflow_engine.field_odoo_workflow_node_field__group_ids
+#: model:ir.model.fields,field_description:just_workflow_engine.field_workflow_node__group_ids
+#: model_terms:ir.ui.view,arch_db:just_workflow_engine.view_form_odoo_workflow_node_field
+msgid "Groups"
+msgstr "组"
+
+#. module: just_workflow_engine
+#: model:ir.model.fields,field_description:just_workflow_engine.field_workflow_node__flow_roles
+#: model_terms:ir.ui.view,arch_db:just_workflow_engine.workflow_node_form_view
+#: code:just_workflow_engine/model/workflow.py:0
+msgid "Flow Roles"
+msgstr "流程角色"
+
+#. module: just_workflow_engine
+#: model:ir.model.fields,field_description:just_workflow_engine.field_workflow_node__audit_type
+#: model_terms:ir.ui.view,arch_db:just_workflow_engine.workflow_node_form_view
+#: code:just_workflow_engine/model/workflow.py:0
+msgid "Audit Type"
+msgstr "处理类别"
+
+#. module: just_workflow_engine
+#: model:ir.model.fields.selection,name:just_workflow_engine.selection__workflow_node__audit_type__approval
+msgid "Approval"
+msgstr "或签审批"
+
+#. module: just_workflow_engine
+#: model:ir.model.fields.selection,name:just_workflow_engine.selection__workflow_node__audit_type__counter_sign
+msgid "Counter Sign"
+msgstr "会签审批"
+
+#. module: just_workflow_engine
+#: model:ir.model.fields.selection,name:just_workflow_engine.selection__workflow_node__audit_type__notify
+msgid "Notify"
+msgstr "知会"
+
+#. module: just_workflow_engine
+#: model_terms:ir.ui.view,arch_db:just_workflow_engine.wizard_workflow_message_form
+msgid "Review logs"
+msgstr "评审日志"
+
+#. module: just_workflow_engine
+#: model_terms:ir.ui.view,arch_db:just_workflow_engine.wizard_workflow_message_form
+#: code:just_workflow_engine/wizard/wizard_workflow.py:0
+msgid "Review comments"
+msgstr "评审意见"
+
+#. module: just_workflow_engine
+#: code:just_workflow_engine/wizard/wizard_workflow.py:0
+msgid "Countersignature opinion"
+msgstr "加签意见"
+
+#. module: just_workflow_engine
+#: model_terms:ir.ui.view,arch_db:just_workflow_engine.wizard_workflow_message_form
+msgid "Countersign"
+msgstr "加签"
+
+#. module: just_workflow_engine
+#: model:ir.model.fields,field_description:just_workflow_engine.field_log_workflow_trans__id
+#: model:ir.model.fields,field_description:just_workflow_engine.field_odoo_workflow_node_field__id
+#: model:ir.model.fields,field_description:just_workflow_engine.field_wizard_workflow_message__id
+#: model:ir.model.fields,field_description:just_workflow_engine.field_workflow_base__id
+#: model:ir.model.fields,field_description:just_workflow_engine.field_workflow_node__id
+#: model:ir.model.fields,field_description:just_workflow_engine.field_workflow_trans__id
+msgid "ID"
+msgstr ""
+
+#. module: just_workflow_engine
+#: model:ir.model.fields,help:just_workflow_engine.field_workflow_base__allow_reset
+msgid "If True, This Workflow allow to reset draft"
+msgstr "如果为True，则此工作流允许重置草稿"
+
+#. module: just_workflow_engine
+#: model:ir.model.fields,help:just_workflow_engine.field_workflow_node__show_state
+msgid "If True, This node will show in Workflow states"
+msgstr "如果为True，则此节点将以工作流状态显示"
+
+#. module: just_workflow_engine
+#: model:ir.model.fields,help:just_workflow_engine.field_workflow_node__no_reset
+msgid "If True, this Node not display the Reset button, default is True"
+msgstr "如果为True，则此节点不显示重置按钮，默认为True"
+
+#. module: just_workflow_engine
+#: model:ir.model.fields,help:just_workflow_engine.field_workflow_node__event_need
+msgid ""
+"If true, When Workflow arrived this node, will create a calendar event "
+"relation users"
+msgstr "如果为true，当工作流到达此节点时，将为用户创建日历事件关系"
+
+#. module: just_workflow_engine
+#: model:ir.model.fields,help:just_workflow_engine.field_workflow_node__need_note
+msgid ""
+"If true, the Workflow note can not be empty, usually when transfer is "
+"Reverse,you need it"
+msgstr "如果为true，则工作流注释不能为空，通常在转移时是反向的，您需要它"
+
+#. module: just_workflow_engine
+#: model:ir.model.fields,help:just_workflow_engine.field_workflow_node__auto
+msgid ""
+"If true, when condition is True,transfer will auto finish, not need button, "
+"default false"
+msgstr "如果为true，当条件为真时，转移将自动完成，不需要按钮，默认为false"
+
+#. module: just_workflow_engine
+#: model:ir.model.fields,help:just_workflow_engine.field_log_workflow_node__note
+msgid "If you want record something for this transfer, write here"
+msgstr "如果你想为这次转移录点什么，写在这里"
+
+#. module: just_workflow_engine
+#: model:ir.model.fields,field_description:just_workflow_engine.field_workflow_node__in_trans
+msgid "Incoming Transfer"
+msgstr "传入转换"
+
+#. module: just_workflow_engine
+#: model:ir.model.fields,field_description:just_workflow_engine.field_odoo_workflow_node_field__invisible
+msgid "Invisible"
+msgstr "隐藏"
+
+#. module: just_workflow_engine
+#: model:ir.model.fields,field_description:just_workflow_engine.field_workflow_node__no_reset
+msgid "Invisible Reset"
+msgstr "隐藏重置"
+
+#. module: just_workflow_engine
+#: model:ir.model.fields,field_description:just_workflow_engine.field_workflow_trans__is_backward
+msgid "Is Reverse"
+msgstr "回退转移"
+
+#. module: just_workflow_engine
+#: model:ir.model.fields,help:just_workflow_engine.field_workflow_node__is_backward
+msgid "Is a Reverse transfer"
+msgstr "是回退转移节点"
+
+#. module: just_workflow_engine
+#: model:ir.model.fields,field_description:just_workflow_engine.field_log_workflow_trans____last_update
+#: model:ir.model.fields,field_description:just_workflow_engine.field_odoo_workflow_node_field____last_update
+#: model:ir.model.fields,field_description:just_workflow_engine.field_wizard_workflow_message____last_update
+#: model:ir.model.fields,field_description:just_workflow_engine.field_workflow_base____last_update
+#: model:ir.model.fields,field_description:just_workflow_engine.field_workflow_node____last_update
+#: model:ir.model.fields,field_description:just_workflow_engine.field_workflow_trans____last_update
+msgid "Last Modified on"
+msgstr "上次修改时间"
+
+#. module: just_workflow_engine
+#: model:ir.model.fields,field_description:just_workflow_engine.field_log_workflow_trans__write_uid
+#: model:ir.model.fields,field_description:just_workflow_engine.field_odoo_workflow_node_field__write_uid
+#: model:ir.model.fields,field_description:just_workflow_engine.field_wizard_workflow_message__write_uid
+#: model:ir.model.fields,field_description:just_workflow_engine.field_workflow_base__write_uid
+#: model:ir.model.fields,field_description:just_workflow_engine.field_workflow_node__write_uid
+#: model:ir.model.fields,field_description:just_workflow_engine.field_workflow_trans__write_uid
+msgid "Last Updated by"
+msgstr "上次更新者"
+
+#. module: just_workflow_engine
+#: model:ir.model.fields,field_description:just_workflow_engine.field_log_workflow_trans__write_date
+#: model:ir.model.fields,field_description:just_workflow_engine.field_odoo_workflow_node_field__write_date
+#: model:ir.model.fields,field_description:just_workflow_engine.field_wizard_workflow_message__write_date
+#: model:ir.model.fields,field_description:just_workflow_engine.field_workflow_base__write_date
+#: model:ir.model.fields,field_description:just_workflow_engine.field_workflow_node__write_date
+#: model:ir.model.fields,field_description:just_workflow_engine.field_workflow_trans__write_date
+msgid "Last Updated on"
+msgstr "上次更新时间"
+
+#. module: just_workflow_engine
+#: model_terms:ir.ui.view,arch_db:just_workflow_engine.workflow_node_form_view
+msgid "Load Model Fields"
+msgstr "加载模型字段"
+
+#. module: just_workflow_engine
+#: model_terms:ir.ui.view,arch_db:just_workflow_engine.view_form_odoo_workflow_node_field
+msgid "Main Information"
+msgstr "主要信息"
+
+#. module: just_workflow_engine
+#: model:ir.model.fields,field_description:just_workflow_engine.field_workflow_node__fill
+#: model:ir.model.fields,field_description:just_workflow_engine.field_workflow_trans__fill
+msgid "fill color"
+msgstr "填充色"
+
+#. module: just_workflow_engine
+#: model:ir.model.fields,field_description:just_workflow_engine.field_workflow_node__stroke
+#: model:ir.model.fields,field_description:just_workflow_engine.field_workflow_trans__stroke
+msgid "stroke color"
+msgstr "边框色"
+
+#. module: just_workflow_engine
+#: model:ir.model.fields,field_description:just_workflow_engine.field_workflow_node__strokenWidth
+#: model:ir.model.fields,field_description:just_workflow_engine.field_workflow_trans__strokenWidth
+msgid "width of stocke"
+msgstr "边框粗细"
+
+#. module: just_workflow_engine
+#: model:ir.model.fields,field_description:just_workflow_engine.field_log_workflow_trans__model
+#: model:ir.model.fields,field_description:just_workflow_engine.field_odoo_workflow_node_field__model_id
+msgid "Model"
+msgstr "模型"
+
+#. module: just_workflow_engine
+#: model:ir.model.fields,field_description:just_workflow_engine.field_workflow_base__model_view_id
+#: model:ir.model.fields,field_description:just_workflow_engine.field_workflow_node__model_view_id
+msgid "Model View"
+msgstr "模型视图"
+
+#. module: just_workflow_engine
+#: model:ir.model.fields,field_description:just_workflow_engine.field_workflow_base__model
+#: model:ir.model.fields,field_description:just_workflow_engine.field_workflow_node__model
+msgid "Model Name"
+msgstr "模型名称"
+
+#. module: just_workflow_engine
+#: model:ir.model.fields,field_description:just_workflow_engine.field_workflow_node__model_id
+msgid "Model Ref."
+msgstr "模型关联."
+
+#. module: just_workflow_engine
+#: model:ir.model.fields,field_description:just_workflow_engine.field_workflow_base__is_replace
+msgid "Replace"
+msgstr "是否替换"
+
+#. module: just_workflow_engine
+#: model:ir.model.fields,field_description:just_workflow_engine.field_workflow_base__model_id
+#: model:ir.model.fields,field_description:just_workflow_engine.field_workflow_node__model_id
+msgid "Module ID"
+msgstr "模型ID"
+
+#. module: just_workflow_engine
+#: model:ir.model.fields,field_description:just_workflow_engine.field_workflow_node__menu_id
+msgid "menu id"
+msgstr "菜单项"
+
+#. module: just_workflow_engine
+#: model:ir.model.fields,field_description:just_workflow_engine.field_workflow_node__context
+msgid "context"
+msgstr "上下文参数"
+
+#. module: just_workflow_engine
+#: model:ir.model.fields,field_description:just_workflow_engine.field_workflow_node__date_deadline
+msgid "date deadline"
+msgstr "需要完成时间"
+
+#. module: just_workflow_engine
+#: model:ir.model.fields,field_description:just_workflow_engine.field_workflow_node__real_id
+msgid "Real ID"
+msgstr "任务实际id"
+
+#. module: just_wworkflow_kflow_engine
+#: model:ir.model.fields,field_description:just_workflow_engine.field_log_workflow_trans__name
+#: model:ir.model.fields,field_description:just_workflow_engine.field_workflow_base__name
+#: model:ir.model.fields,field_description:just_workflow_engine.field_workflow_node__name
+#: model:ir.model.fields,field_description:just_workflow_engine.field_workflow_trans__name
+msgid "Name"
+msgstr "名称"
+
+#. module: just_workflow_engine
+#: model:ir.model.fields,field_description:just_workflow_engine.field_workflow_base__no_reset_groups
+msgid "No Reset Groups"
+msgstr "无重置组"
+
+#. module: just_workflow_engine
+#: model:ir.model.fields,field_description:just_workflow_engine.field_workflow_base__no_reset_states
+msgid "No Reset States"
+msgstr "无重置状态"
+
+#. module: just_workflow_engine
+#: model:ir.model.fields,field_description:just_workflow_engine.field_odoo_workflow_node_field__node_id
+msgid "Node Ref."
+msgstr "节点关联."
+
+#. module: just_workflow_engine
+#: model:ir.model.fields,help:just_workflow_engine.field_workflow_base__node_ids
+msgid "Nodes"
+msgstr "节点组"
+
+#. module: just_workflow_engine
+#: model:ir.model.fields,field_description:just_workflow_engine.field_workflow_base__node_ids
+#: model_terms:ir.ui.view,arch_db:just_workflow_engine.workflow_base_form_view
+msgid "Node"
+msgstr "节点"
+
+#. module: just_workflow_engine
+#: model:ir.model.fields,field_description:just_workflow_engine.field_log_workflow_trans__note
+#: model:ir.model.fields,field_description:just_workflow_engine.field_wizard_workflow_message__name
+#: model_terms:ir.ui.view,arch_db:just_workflow_engine.wizard_workflow_message_form
+msgid "Note"
+msgstr "意见"
+
+#. module: just_workflow_engine
+#: model:ir.model.fields,help:just_workflow_engine.field_workflow_node__join_mode
+msgid ""
+"OR:anyone input Transfers approved, will arrived this node.  workflow_:must all "
+"input Transfers approved, will arrived this node"
+msgstr ""
+"或(OR)：任何人输入转移批准后，都会到达该节点。与(AND)：必须全部输入转移已批"
+"准，将到达此节点"
+
+#. module: just_workflow_engine
+#: model:ir.model,name:just_workflow_engine.model_odoo_workflow_node_field
+msgid "Odoo Workflow Node Fields"
+msgstr "Odoo工作流节点字段"
+
+#. module: just_workflow_engine
+#: model:ir.model.fields.selection,name:just_workflow_engine.selection__workflow_node__join_mode__or
+#: model:ir.model.fields.selection,name:just_workflow_engine.selection__workflow_node__split_mode__or
+msgid "Or"
+msgstr "或"
+
+#. module: just_workflow_engine
+#: model:ir.model.fields.selection,name:just_workflow_engine.selection__workflow_node__join_mode__and
+#: model:ir.model.fields.selection,name:just_workflow_engine.selection__workflow_node__split_mode__and
+msgid "And"
+msgstr "与"
+
+#. module: just_workflow_engine
+#: model:ir.model.fields,field_description:just_workflow_engine.field_workflow_node__split_mode
+msgid "Split Mode"
+msgstr "分离模式"
+
+#. module: just_workflow_engine
+#: model:ir.model.fields,field_description:just_workflow_engine.field_workflow_node__join_mode
+msgid "Join Mode"
+msgstr "并入模式"
+
+#. module: just_workflow_engine
+#: model:ir.model.fields,field_description:just_workflow_engine.field_workflow_node__out_trans
+msgid "Out Transfer"
+msgstr "转出"
+
+#. module: just_workflow_engine
+#: model:ir.model.fields,field_description:just_workflow_engine.field_workflow_trans__action
+msgid "Python Action"
+msgstr "Python动作"
+
+#. module: just_workflow_engine
+#: model:ir.model.fields,field_description:just_workflow_engine.field_workflow_trans__py_code
+#: model:ir.model.fields.selection,name:just_workflow_engine.selection__workflow_trans__action_type__code
+msgid "Python Code"
+msgstr "Python代码"
+
+#. module: just_workflow_engine
+#: model:ir.model.fields,field_description:just_workflow_engine.field_odoo_workflow_node_field__readonly
+msgid "Readonly"
+msgstr "只读"
+
+#. module: just_workflow_engine
+#: model:ir.model.fields,field_description:just_workflow_engine.field_odoo_workflow_node_field__required
+msgid "Required"
+msgstr "必填"
+
+#. module: just_workflow_engine
+#: model:ir.model.fields,field_description:just_workflow_engine.field_log_workflow_node__res_id
+msgid "Resource ID"
+msgstr "资源ID"
+
+#. module: just_workflow_engine
+#: model:ir.model.fields,help:just_workflow_engine.field_workflow_base__model_id
+#: model:ir.model.fields,help:just_workflow_engine.field_workflow_node__model_id
+msgid "Select a model that you want to create the Workflow"
+msgstr "选择要创建工作流的模型"
+
+#. module: just_workflow_engine
+#: model:ir.model.fields,field_description:just_workflow_engine.field_workflow_node__sequence
+#: model:ir.model.fields,field_description:just_workflow_engine.field_workflow_node__sequence
+msgid "Sequence"
+msgstr "顺序"
+
+#. module: just_workflow_engine
+#: model:ir.model.fields,field_description:just_workflow_engine.field_workflow_trans__server_action_id
+#: model:ir.model.fields.selection,name:just_workflow_engine.selection__workflow_trans__action_type__action
+msgid "Server Action"
+msgstr "服务器动作"
+
+#. module: just_workflow_engine
+#: model:ir.model.fields,field_description:just_workflow_engine.field_workflow_node__show_state
+msgid "Show In States"
+msgstr "在状态条显示"
+
+#. module: just_workflow_engine
+#: model:ir.model.fields,field_description:just_workflow_engine.field_workflow_trans__node_to
+msgid "TO Node"
+msgstr "至节点"
+
+#. module: just_workflow_engine
+#: model:ir.model.fields,field_description:just_workflow_engine.field_workflow_node__weixin_need
+msgid "Wechat notification"
+msgstr "是否企业微信通知"
+
+#. module: just_workflow_engine
+#: model:ir.model.fields,field_description:just_workflow_engine.field_workflow_node__is_approve
+msgid "Need calc approve"
+msgstr "是否计算下级审批人"
+
+#. module: just_workflow_engine
+#: model:ir.model.fields,field_description:just_workflow_engine.field_workflow_node__no_decision
+msgid "No Decision"
+msgstr "非决策节点"
+
+#. module: just_workflow_engine
+#: model:ir.model.fields,help:just_workflow_engine.field_workflow_node__user_ids
+msgid "The Users who can process this transfer"
+msgstr "可以处理此转移的用户"
+
+#. module: just_workflow_engine
+#: model:ir.model.fields,help:just_workflow_engine.field_workflow_base__field_id
+msgid "The Workflow State field"
+msgstr "工作流状态字段"
+
+#. module: just_workflow_engine
+#: model:ir.model.fields,help:just_workflow_engine.field_workflow_base__view_id
+msgid ""
+"The auto created Workflow extend view, show Workflow button, state, logs.."
+msgstr "自动创建的工作流扩展视图、显示工作流按钮、状态、日志.."
+
+#. module: just_workflow_engine
+#: model:ir.model.fields,help:just_workflow_engine.field_workflow_node__event_users
+msgid "The calendar event users"
+msgstr "日历事件用户"
+
+#. module: just_workflow_engine
+#: model:ir.model.fields,help:just_workflow_engine.field_workflow_trans__condition
+msgid "The check condition of this transfer, default is True"
+msgstr "此转移的检查条件，默认为True"
+
+#. module: just_workflow_engine
+#: model:ir.model.fields,help:just_workflow_engine.field_workflow_base__default_state
+msgid "The default Workflow state, It is come from the star node"
+msgstr "默认工作流状态，来自星形节点"
+
+#. module: just_workflow_engine
+#: model:ir.model.fields,help:just_workflow_engine.field_workflow_base__model_view_id
+msgid "The form view of the model that want to extend Workflow button on it"
+msgstr "扩展工作流按钮的在模型的窗体视图上"
+
+#. module: just_workflow_engine
+#: model:ir.model.fields,help:just_workflow_engine.field_workflow_node__group_ids
+msgid "The groups who can process this transfer"
+msgstr "可以处理此转移的组"
+
+#. module: just_workflow_engine
+#: model:ir.model.fields,help:just_workflow_engine.field_workflow_node__in_trans
+msgid "The input transfer of this node"
+msgstr "此节点的输入转移"
+
+#. module: just_workflow_engine
+#: model:ir.model.fields,help:just_workflow_engine.field_workflow_node__out_trans
+msgid "The out transfer of this node"
+msgstr "此节点的传出转移"
+
+#. module: just_workflow_engine
+#: code:just_workflow_engine/models/base.py:0
+#, python-format
+msgid "The transfer had finish"
+msgstr "己评审完成"
+
+#. module: just_workflow_engine
+#: model:ir.model.fields,help:just_workflow_engine.field_workflow_node__is_stop
+msgid "This node is the end of the Workflow"
+msgstr "此节点是工作流的结束"
+
+#. module: just_workflow_engine
+#: model:ir.model.fields,help:just_workflow_engine.field_workflow_node__is_start
+msgid "This node is the start of the Workflow"
+msgstr "此节点是工作流的开始"
+
+#. module: just_workflow_engine
+#: model:ir.model.fields,field_description:just_workflow_engine.field_workflow_base__tracking
+msgid "Tracking Wkf state"
+msgstr "跟踪工作流状态"
+
+#. module: just_workflow_engine
+#: model:ir.model.fields,field_description:just_workflow_engine.field_log_workflow_trans__trans_id
+#: model:ir.model.fields,field_description:just_workflow_engine.field_workflow_base__trans_ids
+#: model_terms:ir.ui.view,arch_db:just_workflow_engine.workflow_base_form_view
+msgid "Transfer"
+msgstr "转移"
+
+#. module: just_workflow_engine
+#: model:ir.ui.menu,name:just_workflow_engine.log_workflow_trans_menu
+msgid "Transfer Log"
+msgstr "转移日志"
+
+#. module: just_workflow_engine
+#: model:ir.actions.act_window,name:just_workflow_engine.action_log_workflow_trans_view
+#: model_terms:ir.ui.view,arch_db:just_workflow_engine.log_workflow_trans_tree_view
+msgid "Transfer log"
+msgstr "转移日志"
+
+#. module: just_workflow_engine
+#: model:ir.model.fields,help:just_workflow_engine.field_workflow_base__trans_ids
+msgid "Transfers,"
+msgstr "转移,"
+
+#. module: just_workflow_engine
+#: model_terms:ir.ui.view,arch_db:just_workflow_engine.workflow_base_form_view
+msgid "Update WorkFollow Setting"
+msgstr "更新工作流"
+
+#. module: just_workflow_engine
+#: model_terms:ir.ui.view,arch_db:just_workflow_engine.workflow_base_form_view
+msgid "define WorkFollow"
+msgstr "定义流程"
+
+#. module: just_workflow_engine
+#: model:ir.model.fields,field_description:just_workflow_engine.field_odoo_workflow_node_field__user_ids
+#: model:ir.model.fields,field_description:just_workflow_engine.field_workflow_node__user_ids
+#: model_terms:ir.ui.view,arch_db:just_workflow_engine.view_form_odoo_workflow_node_field
+msgid "Users"
+msgstr "用户"
+
+#. module: just_workflow_engine
+#: model:ir.model.fields,help:just_workflow_engine.field_workflow_node__action
+msgid ""
+"When arrived this node, you can set to trigger a object function to do "
+"something, example confirm the order"
+msgstr "当到达这个节点时，可以设置触发一个对象函数来做某事，例如确认订单"
+
+#. module: just_workflow_engine
+#: model:ir.model.fields,help:just_workflow_engine.field_workflow_base__no_reset_states
+msgid "Which state u can to reset the Workflow"
+msgstr "你可以重置工作流的哪个状态"
+
+#. module: just_workflow_engine
+#: model:ir.model.fields,help:just_workflow_engine.field_workflow_base__show_states
+msgid "Which status can show the state widget, It is set by node"
+msgstr "哪个状态可以显示状态小部件，它是由节点设置的"
+
+#. module: just_workflow_engine
+#: model:ir.model.fields,field_description:just_workflow_engine.field_workflow_trans__win_act_id
+#: model:ir.model.fields.selection,name:just_workflow_engine.selection__workflow_trans__action_type__win_act
+msgid "Window Action"
+msgstr "窗口动作"
+
+#. module: just_workflow_engine
+#: model:ir.ui.menu,name:just_workflow_engine.menu_workflow_root
+#: model:ir.ui.menu,name:just_workflow_engine.workflow_base_menu
+msgid "WorkFollow"
+msgstr "工作流"
+
+#. module: just_workflow_engine
+#: code:just_workflow_engine/models/base.py:0
+#, python-format
+msgid "WorkFollow Logs"
+msgstr "工作流日志"
+
+#. module: just_workflow_engine
+#: model:ir.ui.menu,name:just_workflow_engine.workflow_node_menu
+msgid "WorkFollow Node"
+msgstr "工作流节点"
+
+#. module: just_workflow_engine
+#: model:ir.actions.act_window,name:just_workflow_engine.action_workflow_trans_view
+#: model:ir.ui.menu,name:just_workflow_engine.workflow_trans_menu
+msgid "WorkFollow Transfer"
+msgstr "工作流转移"
+
+#. module: just_workflow_engine
+#: model:ir.model.fields,field_description:just_workflow_engine.field_workflow_node__workflow_id
+#: model:ir.model.fields,field_description:just_workflow_engine.field_workflow_trans__workflow_id
+msgid "Workflow"
+msgstr "工作流"
+
+#. module: just_workflow_engine
+#: model:ir.model.fields,help:just_workflow_engine.field_workflow_base__reset_group
+msgid "Workflow Reset Button Groups, default Admin"
+msgstr "工作流重置按钮组，默认管理员"
+
+#. module: just_workflow_engine
+#: model:ir.model.fields,field_description:just_workflow_engine.field_workflow_node__is_start
+msgid "Workflow Start"
+msgstr "工作流开始"
+
+#. module: just_workflow_engine
+#: model:ir.model.fields,field_description:just_workflow_engine.field_workflow_node__is_stop
+msgid "Workflow Stop"
+msgstr "工作流结束"
+
+#. module: just_workflow_engine
+#: code:just_workflow_engine/models/workflow.py:0
+#, python-format
+msgid ""
+"Wrong python code defined.\n"
+"\n"
+"Error: %s\n"
+"Line: %s, Column: %s\n"
+"\n"
+"%s"
+msgstr ""
+"错误的Python代码定义.\n"
+"\n"
+"错误: %s\n"
+"行: %s, 字段: %s\n"
+"\n"
+"%s"
+
+#. module: just_workflow_engine
+#: model:ir.model.fields,field_description:just_workflow_engine.field_workflow_node__xml_groups
+msgid "XML Groups"
+msgstr "XML组"
+
+#. module: just_workflow_engine
+#: model:ir.model.fields,help:just_workflow_engine.field_workflow_node__arg
+msgid "the object function args"
+msgstr "对象函数args"
+
+#. module: just_workflow_engine
+#: model:ir.actions.act_window,name:just_workflow_engine.wizard_workflow_message_action
+msgid "workflow.wizard.message"
+msgstr ""
+
+#. module: just_workflow_engine
+#: model_terms:ir.ui.view,arch_db:just_workflow_engine.workflow_node_form_view
+msgid "All to Readonly"
+msgstr "全部设为只读"
+
+#. module: just_workflow_engine
+#: model:ir.model.fields,field_description:just_workflow_engine.field_workflow_base__model_tree_view_id
+msgid "list view"
+msgstr "列表视图"
+
+#. module: just_workflow_engine
+#: code:just_workflow_engine/models/base.py:0
+#, python-format
+msgid " event trigged."
+msgstr "事件触发"
+
+#. module: just_workflow_engine
+#: code:just_workflow_engine/models/base.py:0
+#, python-format
+msgid "Flow Approve"
+msgstr "工作流审批"
+
+#. module: just_workflow_engine
+#: code:just_workflow_engine/models/base.py:0
+#, python-format
+msgid "Todo Task"
+msgstr "待办任务"
+
+#. module: just_workflow_engine
+#: code:just_workflow_engine/models/base.py:0
+#, python-format
+msgid "Event Detection"
+msgstr "事件监控"
+
+#. module: just_workflow_engine
+#: code:just_workflow_engine/models/base.py:0
+#, python-format
+msgid "Review comments"
+msgstr "评审意见"
+
+#. module: just_workflow_engine
+#: code:just_workflow_engine/models/base.py:0
+#, python-format
+msgid "Workflow approval log"
+msgstr "工作流审批日志"
+
+#. module: just_workflow_engine
+#: code:just_workflow_engine/models/base.py:0
+#: code:just_workflow_engine/models/workflow.py:0
+#, python-format
+msgid "Diagram"
+msgstr "流程图"
+
+#. module: just_workflow_engine
+#: model:ir.model.fields,field_description:just_workflow_engine.field_workflow_base__tree_view_id
+msgid "tree view"
+msgstr "添加的列表视图"
+
+#. module: just_workflow_engine
+#: model:ir.model.fields,field_description:just_workflow_engine.field_workflow_node__reset_group_id
+msgid "重置用户组"
+msgstr ""
+
+#. module: just_workflow_engine
+#: code:just_workflow_engine/models/workflow.py:0
+#, python-format
+msgid "Flowlogs"
+msgstr "流程日志"
+
+#. module: just_workflow_engine
+#: code:just_workflow_engine/models/workflow.py:0
+#, python-format
+msgid "x_workflow_state"
+msgstr "流程状态"
+
+#. module: just_workflow_engine
+#: code:just_workflow_engine/models/workflow.py:0
+#, python-format
+msgid "wait "
+msgstr "等待"
+
+#. module: just_workflow_engine
+#: code:just_workflow_engine/models/workflow.py:0
+#, python-format
+msgid "Workflow approval notification"
+msgstr "工作流审批通知"
+
+#. module: just_workflow_engine
+#: code:just_workflow_engine/models/workflow.py:0
+#, python-format
+msgid "[%s] workflow needs your approval!"
+msgstr "[%s]工作流程需要您的审批！"
+
+#. module: just_workflow_engine
+#: code:just_workflow_engine/models/workflow.py:0
+#, python-format
+msgid "[%s] [%s]'s [%s] needs approval, please handle it in time! [%s]"
+msgstr "【%s】【%s】的【%s】需要审批，请及时处理！ [%s]"

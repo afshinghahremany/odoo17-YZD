@@ -1,0 +1,390 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+	<data>
+		<menuitem id="menu_workflow_root" name="WorkFollow" groups="base.group_system" web_icon="just_workflow_engine,static/description/icon.png" />
+		<record model="ir.ui.view" id="workflow_base_tree_view">
+			<field name="name">workflow.base.tree</field>
+			<field name="model">workflow.base</field>
+			<field name="arch" type="xml">
+				<tree string="Custom WorkFollow">
+					<field name="name" />
+					<field name="model_id" />
+					<field name="default_state" />
+				</tree>
+			</field>
+		</record>
+		<record model="ir.ui.view" id="workflow_base_form_view">
+			<field name="name">workflow.base.form</field>
+			<field name="model">workflow.base</field>
+			<field name="arch" type="xml">
+				<form string="Custom WorkFollow">
+					<header>
+						<button name="define_workflow" string="define WorkFollow" type="object" class="oe_highlight" />
+						<button name="sync2ref_model" string="Update WorkFollow Setting" type="object" class="oe_highlight" />
+						<button name="action_no_active" string="Cancel WorkFollow Setting" type="object" class="oe_highlight" />
+					</header>
+					<field name="isActive" invisible="1" />
+					<widget name="web_ribbon" title="Active" invisible ="isActive == False" />
+					<group>
+						<group>
+							<field name="name" />
+							<field name="model_id" required="1" readonly="isActive"/>
+							<field name="model" />
+							<field name="tracking" invisible="1" />
+							<field name="field_id" groups="base.group_system" invisible="1" />
+							<field name="field_id2" groups="base.group_system" invisible="1" />
+							<field name="is_replace" />
+						</group>
+						<group>
+							<field name="model_view_id" required="1" readonly="isActive" domain="[('model','=',model),('type','=','form'),('mode','=','primary')]" />
+							<field name="model_tree_view_id" required="1" readonly="isActive" domain="[('model','=',model),('type','=','tree'),('mode','=','primary')]" />
+							<field name="view_id" domain="[('id','=',0)]" />
+							<field name="tree_view_id" domain="[('id','=',0)]" />
+							<field name="widget_view_id" domain="[('id','=',0)]" invisible="1" />
+							<field name="default_state" groups="base.group_system" invisible="1"/>
+							<field name="stop_state" groups="base.group_system" invisible="1"/>
+							<field name="show_states" groups="base.group_system" invisible="1" />
+							<field name="no_reset_states" groups="base.group_system" invisible="1" />
+						</group>
+					</group>
+					<notebook>
+						<page string="Node">
+							<field name="node_ids" context="{'default_workflow_id': id}">
+								<tree>
+									<field name="sequence" widget="handle" />
+									<field name="id" width="40px" />
+									<field name="name" />
+									<field name="show_state" />
+									<field name="split_mode" invisible="1" />
+									<field name="join_mode" invisible="1"/>
+									<field name="condition" />
+									<field name="trans_type" widget="radio" options="{'horizontal': True}" readonly="1"/>
+								</tree>
+							</field>
+						</page>
+						<page string="Transfer">
+							<field name="trans_ids" context="{'default_workflow_id': id}">
+								<tree>
+									<field name="id" width="40px" />
+									<field name="name" />
+									<field name="node_from" domain="[('workflow_id','=', parent.id)]" />
+									<field name="node_to" domain="[('workflow_id','=', parent.id)]" />
+								</tree>
+							</field>
+						</page>
+						<!--<page string="Button">
+							<field name="buttons_ids" context="{'default_workflow_id': id}">
+								<tree>
+									<field name="sequence" widget="handle" />
+									<field name="name" />
+									<field name="belong_node" />
+									<field name="group_ids" widget="many2many_tags" />
+									<field name="user_ids" widget="many2many_tags" />
+								</tree>
+							</field>
+						</page>-->
+					</notebook>
+				</form>
+			</field>
+		</record>
+		<record id="view_workflow_base_diagram" model="ir.ui.view">
+			<field name="name">workflow.base.diagram</field>
+			<field name="model">workflow.base</field>
+			<field name="arch" type="xml">
+				<diagram_plus>
+					<node object="workflow.node" bgcolor="gray:is_start==True;grey:is_stop==True">
+						<field name="id" />
+						<!-- field name="action"/>-->
+					</node>
+					<arrow object="workflow.trans" source="node_from" destination="node_to" label="['name']">
+						<!--<field name="node_from"/>
+						<field name="node_to" />-->
+					</arrow>
+				</diagram_plus>
+			</field>
+		</record>
+		<record model="ir.actions.act_window" id="action_workflow_base_view">
+			<field name="name">Custom WorkFollow</field>
+			<field name="type">ir.actions.act_window</field>
+			<field name="res_model">workflow.base</field>
+			<field name="view_mode">tree,form</field>
+		</record>
+		<menuitem id="workflow_base_menu" name="WorkFollow" parent="menu_workflow_root" action="action_workflow_base_view" sequence="101" />
+		<record model="ir.ui.view" id="workflow_node_tree_view">
+			<field name="name">workflow.node.tree</field>
+			<field name="model">workflow.node</field>
+			<field name="arch" type="xml">
+				<tree string="Custom WorkFollow Node">
+					<field name="workflow_id" />
+					<field name="name" />
+					<field name="show_state" />
+					<field name="in_trans" widget="many2many_tags" />
+					<field name="out_trans" widget="many2many_tags" />
+					<field name="condition" />
+					<field name="trans_type" widget="radio" options="{'horizontal': True}" readonly="1"/>
+				</tree>
+			</field>
+		</record>
+		<record model="ir.ui.view" id="workflow_node_form_view">
+			<field name="name">workflow.node.form</field>
+			<field name="model">workflow.node</field>
+			<field name="arch" type="xml">
+				<form string="Custom WorkFollow Node">
+					<group>
+						<group>
+							<field name="name" />
+							<field name="show_state" />
+							<field name="condition" invisible="1"/>
+							<field name="event_need" />
+							<!-- <field name="weixin_need" /> -->
+							<field name="event_users" widget="many2many_tags" invisible="1" />
+							<field name="trans_type" />
+						</group>
+						<group>
+							<field name="join_mode" />
+							<field name="code" invisible="1" />
+							<field name="no_decision" />
+							<field name="fill" widget="justcolorpicker" />
+							<field name="stroke" widget="justcolorpicker" border="1" />
+							<field name="strokenWidth" />
+							<field name="x_model_id" invisible="1"  />
+						</group>
+					</group>
+					<notebook>
+						<page string="Actions" >
+							<group col="2">
+								<group string="Approve"  >
+									<field name="audit_type" widget="radio" options="{'horizontal': True}" />
+									<field name="group_ids" widget="many2many_tags" />
+									<field name="user_ids" widget="many2many_tags" />
+									<field name="flow_roles" widget="many2many_tags" />
+									<field name="notify" invisible="audit_type != 'notify'" />
+								</group>
+								<group string="Event Detection" invisible ="trans_type != 'time'" >
+									<field name="model_id"  required="trans_type == 'time'" />
+									<field name="task_model" />
+									<field name="task_condition" placeholder="True"  required="trans_type == 'time'" />
+									<field name="real_id" placeholder="self.id the task model record id" required="trans_type == 'time'" />
+								</group>
+								<group string="Todo Task" invisible="trans_type != 'task'" >
+									<field name="model_id"  required="trans_type == 'task'" />
+									<field name="task_model" />
+									<field name="real_id" placeholder="self.id the task model record id"  required="trans_type == 'task'" />
+									<field name="model_view_id" domain="[('model','=',task_model),('type','=','form'),('mode','=','primary')]" required = "trans_type == 'task'" />
+									<field name="menu_id" invisible="1" />
+									<field name="task_condition" placeholder="True"  required = "trans_type == 'task'" />
+									<field name="context" widget="text"/>
+								</group>
+							</group>
+						</page>
+						<page string="Fields">
+							<button name="btn_load_fields" string="Load Model Fields" type="object" style="margin-right:5px" class="oe_highlight" />
+							<button name="btn_set_fields_readonly" string="All to Readonly" type="object" class="oe_highlight" />
+							<field name="field_ids" context="{'default_model_id':x_model_id}" />
+						</page>
+					</notebook>
+				</form>
+			</field>
+		</record>
+		<record model="ir.actions.act_window" id="action_workflow_node_view">
+			<field name="name">Custom WorkFollow Node</field>
+			<field name="type">ir.actions.act_window</field>
+			<field name="res_model">workflow.node</field>
+			<field name="view_mode">tree,form</field>
+		</record>
+		<menuitem id="workflow_node_menu" name="WorkFollow Node" parent="menu_workflow_root" action="action_workflow_node_view" sequence="102" />
+		<record model="ir.ui.view" id="workflow_trans_tree_view">
+			<field name="name">workflow.trans.tree</field>
+			<field name="model">workflow.trans</field>
+			<field name="arch" type="xml">
+				<tree string="Custom WorkFollow Transfer">
+					<field name="name" />
+					<field name="node_from" />
+					<field name="node_to" />
+					<field name="workflow_id" />
+				</tree>
+			</field>
+		</record>
+		<record model="ir.ui.view" id="workflow_trans_form_view">
+			<field name="name">workflow.trans.form</field>
+			<field name="model">workflow.trans</field>
+			<field name="arch" type="xml">
+				<form string="Custom WorkFollow Trans">
+					<group>
+						<group>
+							<field name="name" />
+							<field name="condition" />
+							<field name="node_from" />
+							<field name="node_to" />
+						</group>
+						<group>
+							<field name="workflow_id" />
+							<field name="fill" widget="color" invisible="1" />
+							<field name="stroke" widget="justcolorpicker" border="1" />
+							<field name="strokenWidth" />
+							<field name="is_backward" />
+						</group>
+					</group>
+					<notebook>
+						<page string="Actions">
+							<group col='1'>
+								<group>
+									<field name="action_type" />
+								</group>
+								<group name="code" invisible="action_type != 'code'">
+									<field name="py_code" widget="ace" options="{'mode': 'python'}" required="action_type == 'code'" />
+								</group>
+								<group name="action" invisible="action_type != 'action'">
+									<field name="server_action_id" required="action_type == 'action'" />
+								</group>
+								<group name="win_action" invisible="action_type != 'win_act'">
+									<field name="win_act_id" required="action_type == 'win_act'" />
+								</group>
+							</group>
+						</page>
+					</notebook>
+				</form>
+			</field>
+		</record>
+		<record model="ir.ui.view" id="workflow_button_tree_view">
+			<field name="name">workflow.button.tree</field>
+			<field name="model">workflow.buttons</field>
+			<field name="arch" type="xml">
+				<tree string="Custom WorkFollow Transfer">
+					<field name="name" />
+					<field name="group_ids" />
+					<field name="workflow_id" />
+					<field name="model" />
+				</tree>
+			</field>
+		</record>
+		<record model="ir.ui.view" id="workflow_buttons_form_view">
+			<field name="name">workflow.button.tree</field>
+			<field name="model">workflow.buttons</field>
+			<field name="arch" type="xml">
+				<form string="Custom WorkFollow Buttons">
+					<group>
+						<field name="name" />
+						<field name="workflow_id" />
+						<field name="belong_node" />
+						<field name="group_ids" widget="many2many_tags" />
+						<field name="user_ids" widget="many2many_tags" />
+					</group>
+					<notebook>
+						<page string="Actions">
+							<group>
+								<field name="action_type" />
+							</group>
+							<group name="code" invisible="action_type != 'code'">
+								<field name="py_code" widget="ace" options="{'mode': 'python'}" required="action_type == 'code'" />
+							</group>
+							<group name="action" invisible="action_type != 'action'">
+								<field name="server_action_id" required="action_type == 'action'" />
+							</group>
+							<group name="win_action" invisible="action_type != 'win_act'">
+								<field name="win_act_id" required="action_type == 'win_act'" />
+							</group>
+						</page>
+					</notebook>
+				</form>
+			</field>
+		</record>
+		<!-- Workflow Nodes Fields -->
+		<record id="view_form_odoo_workflow_node_field" model="ir.ui.view">
+			<field name="name">odoo.workflow.node.field.form</field>
+			<field name="model">odoo.workflow.node.field</field>
+			<field name="arch" type="xml">
+				<form>
+					<sheet>
+						<group>
+							<group string="Main Information">
+								<field name="model_id" invisible="1" />
+								<field name="name" required="1" domain="[('model_id','=',model_id)]" />
+							</group>
+							<group string="Attributes">
+								<field name="readonly" />
+								<field name="required" />
+								<field name="invisible" />
+							</group>
+						</group>
+						<group string="Groups">
+							<field name="group_ids" nolabel="1" />
+						</group>
+						<group string="Users">
+							<field name="user_ids" nolabel="1" />
+						</group>
+					</sheet>
+				</form>
+			</field>
+		</record>
+		<record id="view_tree_odoo_workflow_node_field" model="ir.ui.view">
+			<field name="name">odoo.workflow.node.field.tree</field>
+			<field name="model">odoo.workflow.node.field</field>
+			<field name="arch" type="xml">
+				<tree editable="bottom">
+					<field name="model_id" invisible="1" />
+					<field name="name" required="1" domain="[('model_id','=',model_id)]" />
+					<field name="readonly" />
+					<field name="required" />
+					<field name="invisible" />
+					<field name="group_ids" widget="many2many_tags" />
+					<field name="user_ids" widget="many2many_tags" />
+				</tree>
+			</field>
+		</record>
+		<record model="ir.actions.act_window" id="action_workflow_trans_view">
+			<field name="name">WorkFollow Transfer</field>
+			<field name="type">ir.actions.act_window</field>
+			<field name="res_model">workflow.trans</field>
+			<field name="view_mode">tree,form</field>
+		</record>
+		<menuitem id="workflow_trans_menu" name="WorkFollow Transfer" parent="menu_workflow_root" action="action_workflow_trans_view" sequence="103" />
+		<!--<record model="ir.actions.act_window" id="action_workflow_buttons_view">
+			<field name="name">工作流按钮</field>
+			<field name="type">ir.actions.act_window</field>
+			<field name="res_model">workflow.buttons</field>
+			<field name="view_mode">tree,form</field>
+		</record>
+		<menuitem id="workflow_buttons_menu" name="工作流按钮" parent="menu_workflow_root" action="action_workflow_buttons_view" sequence="999" />-->
+		<record model="ir.ui.view" id="log_workflow_trans_tree_view">
+			<field name="name">log_workflow_trans.tree</field>
+			<field name="model">log.workflow.trans</field>
+			<field name="arch" type="xml">
+				<tree string="Transfer log" create="false" edit="false" delete="false">
+					<field name="name" />
+					<field name="trans_id" />
+					<field name="create_uid" />
+					<field name="create_date" />
+					<field name="note" />
+					<field name="active" />
+					<field name="create_date" />
+				</tree>
+			</field>
+		</record>
+		<record model="ir.actions.act_window" id="action_log_workflow_trans_view">
+			<field name="name">Transfer log</field>
+			<field name="type">ir.actions.act_window</field>
+			<field name="res_model">log.workflow.trans</field>
+			<field name="view_mode">tree,form</field>
+		</record>
+		<menuitem id="log_workflow_trans_menu" name="Transfer Log" parent="menu_workflow_root" action="action_log_workflow_trans_view" sequence="105" />
+		<record model="ir.ui.view" id="define_workflow_users_tree_view">
+			<field name="name">define_workflow_users.tree</field>
+			<field name="model">workflow.trans.define.users</field>
+			<field name="arch" type="xml">
+				<tree string="Workflow Roles" editable="bottom">
+					<field name="name" />
+					<field name="code" />
+					<field name="current_user_name" />
+				</tree>
+			</field>
+		</record>
+		<record model="ir.actions.act_window" id="action_define_workflow_users_view">
+			<field name="name">Workflow Roles</field>
+			<field name="type">ir.actions.act_window</field>
+			<field name="res_model">workflow.trans.define.users</field>
+			<field name="view_mode">tree,form</field>
+		</record>
+		<menuitem id="define_workflow_users_menu" name="Workflow Roles" parent="menu_workflow_root" action="action_define_workflow_users_view" sequence="106" />
+	</data>
+</odoo>

@@ -1,0 +1,8 @@
+<odoo>
+    <data>
+        <menuitem name="My Todo" id="menu_root" sequence="-1" web_icon="just_todo,static/src/image/image.png" action="action_hn_todo_activity_todo" />
+        <menuitem name="Todo Task" id="menu_1"  parent="menu_root" action="action_hn_todo_activity_todo" />
+        <menuitem name="Send Task" id="menu_2"  parent="menu_root" action="action_hn_todo_activity_send" />
+        <menuitem name="Done Task" id="menu_3"  parent="menu_root" action="action_hn_todo_activity_complete" />
+    </data>
+</odoo>

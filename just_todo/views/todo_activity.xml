@@ -1,0 +1,206 @@
+<odoo>
+    <data>
+        <record model="ir.ui.view" id="hn_todo_activity_search">
+            <field name="name">todo search</field>
+            <field name="model">todo.activity</field>
+            <field name="arch" type="xml">
+                <search>
+                    <field name="title_display" string="标题" />
+                    <field name="send_user_id" />
+                    <field name="user_ids" />
+                    <field name="date_deadline" />
+                    <separator />
+                    <filter string="read" name="read" domain="[('read_state', '=', 'read')]" />
+                    <filter string="unread" name="unread" domain="[('read_state', '=', 'unread')]" />
+                </search>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="hn_todo_activity_tree">
+            <field name="name">My Todo</field>
+            <field name="model">todo.activity</field>
+            <field name="arch" type="xml">
+                <tree create="0" >
+                    <field name="title" readonly="1" />
+                    <field name="summary" readonly="1" />
+                    <field name="stage_id" readonly="1" />
+                    <field name="user_ids" widget="many2many_tags" readonly="0" />
+                    <field name="send_user_id" readonly="1" />
+                    <field name="read_state" readonly="0" />
+                    <field name="stage_id" readonly="1" />
+                    <field name="date_deadline" readonly="0" />
+                    <button string="Discuss" type="object" class="btn btn-primary" icon='fa-clock-o' name="btn_feedback" />
+                    <button string="Action" type="object" class="btn btn-primary" icon='fa-arrow-right' name="btn_view_detail" />
+                </tree>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="hn_todo_activity_form">
+            <field name="name">My Todo</field>
+            <field name="model">todo.activity</field>
+            <field name="arch" type="xml">
+                <form create="0">
+                    <sheet>
+                        <group>
+
+                            <group>
+                                <field name="stage_id" readonly="1" invisible="1" />
+                                <field name="title" readonly="1" invisible="1" />
+                                <field name="summary" readonly="1" />
+                                <field name="date_deadline" readonly="0" />
+                                <field name="send_user_id" readonly="1" />
+                                <field name="user_ids" widget="many2many_tags" readonly="0" />
+                            </group>
+                            <group>
+                                <div class="oe_chatter">
+                                    <field name="message_ids" widget="mail_thread" />
+                                </div>
+                            </group>
+                        </group>
+                        <group string="debug" col="4" groups="base.group_no_one">
+                            <field name="title" />
+                            <field name="summary" />
+                            <field name="description" />
+                            <field name="title_display" />
+                            <field name="sequence" />
+                            <field name="stage_id" />
+                            <field name="color" />
+                            <field name="view_id" />
+                            <field name="send_user_id" />
+                            <field name="read_state" />
+                            <field name="todo_state" />
+                            <field name="menu_id" />
+                            <field name="image" />
+                            <field name="user_ids" widget="many2many_tags"/>
+                            <field name="date_deadline" />
+                            <field name="is_complete" />
+                            <field name="res_model" />
+                            <field name="res_model_id" />
+                            <field name="res_id" />
+                            <field name="source" />
+                            <field name="real_id" />
+                            <field name="real_model" />
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="hn_todo_activity_kanban">
+            <field name="name">My Todo</field>
+            <field name="model">todo.activity</field>
+            <field name="arch" type="xml">
+                <kanban default_group_by="stage_id" group_create="0" create="0" group_edit="0" group_delete="0" records_draggable="0" class="oe_notes oe_kanban_quickcreate_textarea o_kanban_small_column">
+                    <field name="sequence" />
+                    <field name="stage_id" />
+                    <field name="user_ids" widget="many2many_tags" />
+                    <field name="send_user_id" />
+                    <field name="color" />
+                    <field name="summary" />
+                    <field name="read_state" />
+                    <field name="todo_state" />
+                    <field name="executor" />
+                    <field name="background_color" />
+                    <progressbar field="read_state" colors='{"unread": "danger", "read": "success"}' />
+                    <templates>
+                        <t t-name="kanban-box">
+                            <div t-attf-style="
+                            {{ record.background_color and (record.background_color.raw_value) == '0' ? 'background-color:#dee2e6' : ''}}; 
+                            {{ record.background_color and (record.background_color.raw_value) == '1' ? 'background-color:#B0E0E6' : ''}}; 
+                            {{ record.background_color and (record.background_color.raw_value) == '2' ? 'background-color:#66CDAA' : ''}}; margin: 0 0 10px 0" t-attf-class="{{!selection_mode ? 'oe_kanban_color_' + kanban_getcolor(record.color.raw_value) : ''}} oe_kanban_card oe_kanban_global_click">
+                                <div class="oe_kanban_content container-fluid hn_todo">
+                                    <div class="row o_kanban_record_top">
+                                        <div class="o_kanban_record_headings">
+                                            <div class="img-rounded pull-left" style="margin-right:10px;">
+                                                <field name="image" widget="image" class="oe_avatar" options='{"zoom": true, "size": [23, 22]}' />
+                                            </div>
+                                            <div class="o_todo_kanban_record_title">
+                                                <field name="title_display" />
+                                            </div>
+                                        </div>
+                                        <div class="o_dropdown_kanban dropdown" t-if="!selection_mode" groups="base.group_user">
+                                            <a role="button" class="dropdown-toggle o-no-caret btn" data-toggle="dropdown" data-display="static" href="#" aria-label="Dropdown menu" title="Dropdown menu">
+                                                <span class="fa fa-ellipsis-v" />
+                                            </a>
+                                            <div class="dropdown-menu" role="menu">
+                                                <a t-if="widget.deletable" role="menuitem" type="delete" class="dropdown-item">Delete</a>
+                                                <div role="separator" class="dropdown-divider" />
+                                                <ul class="oe_kanban_colorpicker" data-field="color" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <br />
+                                    <div class="row" t-if="!selection_mode">
+                                        <div class="col-md-12">
+                                            <div class="row">
+                                                <field name="source" nolabel="1" />
+                                            </div>
+                                            <div class="row" name="date_deadline">
+                                                <span>deadline：</span>
+                                                <field name="date_deadline" />
+                                            </div>
+                                            <div class="row">
+                                                <div class='col-6' style='padding-left: 0px; display: flex;'>
+                                                    <span class='user-lable red'>S</span>
+                                                    ：
+                                                    <span class='user'>
+                                                        <field name="send_user_id" />
+                                                    </span>
+                                                </div>
+                                                <div class='col-6' style='padding-left: 0px; display: flex;'>
+                                                    <span class='user-lable green'>D</span>
+                                                    ：
+                                                    <span class='user'>
+                                                        <field name="user_ids" widget="many2many_tags" />
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="btn-group btn-group-justified pull-right" t-if="!selection_mode">
+                                        <div>
+                                            <button type="object" class="btn btn-primary" name="btn_feedback">
+                                                <i class='fa fa-clock-o' />Discuss
+                                            </button>
+                                        </div>
+                                        <div class="btn-group" style="width:10px"></div>
+                                        <div class="btn-group">
+                                            <button type="object" class="btn btn-primary" icon='fa-arrow-right' name="btn_view_detail">
+                                                <i class='fa fa-arrow-right' />
+                                                <t t-esc="record.todo_state.raw_value == 'complete' ? 'View': 'Action'"/>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="oe_clear" />
+                            </div>
+                        </t>
+                    </templates>
+                </kanban>
+            </field>
+        </record>
+
+
+        <record model="ir.actions.act_window" id="action_hn_todo_activity_todo">
+            <field name="name">Todo Task</field>
+            <field name="res_model">todo.activity</field>
+            <field name="view_mode">kanban,tree</field>
+            <field name="domain">[('todo_state', '=', 'todo'), ('user_ids', 'in', uid)]</field>
+        </record>
+
+        <record model="ir.actions.act_window" id="action_hn_todo_activity_send">
+            <field name="name">Send Task</field>
+            <field name="res_model">todo.activity</field>
+            <field name="view_mode">kanban,tree</field>
+            <field name="domain">[('send_user_id', '=', uid)]</field>
+        </record>
+
+        <record model="ir.actions.act_window" id="action_hn_todo_activity_complete">
+            <field name="name">Done Task</field>
+            <field name="res_model">todo.activity</field>
+            <field name="view_mode">kanban,tree</field>
+            <field name="domain">[('todo_state', '=', 'complete'), ('executor', '=', uid)]</field>
+        </record>
+
+    </data>
+</odoo>
