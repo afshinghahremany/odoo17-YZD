@@ -15,19 +15,19 @@ class StockLocation(models.Model):
     def _compute_supplier_partner(self):
         """Compute supplier partner based on usage"""
         for rec in self:
-            if rec.usage != 'supplier':
+            if rec.usage != 'supplier' or rec.usage != 'internal':
                 rec.yzd_supplier_partner_id = False
     @api.onchange('usage')
     def _onchange_usage(self):
         """Clear supplier partner when location type is not supplier"""
-        if self.usage != 'supplier':
+        if self.usage != 'supplier' or self.usage != 'internal':
             self.yzd_supplier_partner_id = False
     @api.constrains('usage', 'yzd_supplier_partner_id')
     def _check_supplier_partner_required(self):
         for rec in self:
             if rec.usage == 'supplier' and not rec.yzd_supplier_partner_id:
                 raise ValidationError(_('لطفاً برای انبار یک تامین‌کننده انتخاب کنید.'))
-            elif rec.usage != 'supplier' and rec.yzd_supplier_partner_id:
+            elif (rec.usage != 'supplier' and rec.usage != 'internal') and rec.yzd_supplier_partner_id:
                 rec.yzd_supplier_partner_id = False
     @api.model
     def _get_supplier_partner_ids(self):
@@ -51,21 +51,21 @@ class StockLocation(models.Model):
     def create(self, vals_list):
         """Override create to prevent setting supplier partner for non-supplier locations"""
         for vals in vals_list:
-            if 'yzd_supplier_partner_id' in vals and vals.get('usage') != 'supplier':
+            if 'yzd_supplier_partner_id' in vals and (vals.get('usage') != 'supplier' and vals.get('usage') != 'internal'):
                 raise UserError(_('You cannot set supplier partner for non-supplier locations.'))
         return super().create(vals_list)
     @api.depends('usage')
     def _compute_supplier_domain(self):
         """Compute domain for supplier partner field"""
         for rec in self:
-            if rec.usage != 'supplier':
+            if rec.usage != 'supplier' or rec.usage != 'internal':
                 rec.yzd_supplier_partner_id = False
                 return [('id', '=', False)]  # Empty domain when not supplier
             return [('active', '=', True)]   # Normal domain for suppliers
     def action_edit_supplier(self):
         """Custom method to edit supplier partner"""
         self.ensure_one()
-        if self.usage != 'supplier':
+        if self.usage != 'supplier' and self.usage!='internal' :
             raise UserError(_('You can only edit supplier partner for supplier locations.'))
         return {
             'type': 'ir.actions.act_window',

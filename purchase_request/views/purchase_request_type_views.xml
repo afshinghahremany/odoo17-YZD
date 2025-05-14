@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Tree View -->
+    <record id="view_purchase_request_type_tree" model="ir.ui.view">
+        <field name="name">purchase.request.type.tree</field>
+        <field name="model">purchase.request.type</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="approver_id"/>
+                <field name="manual_creation"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- Form View -->
+    <record id="view_purchase_request_type_form" model="ir.ui.view">
+        <field name="name">purchase.request.type.form</field>
+        <field name="model">purchase.request.type</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="name"/>
+                            <field name="approver_id"/>
+                            <field name="manual_creation"/>
+                        </group>
+                        <group string="محدودیت‌های فیلد">
+                            <field name="qty_readonly"/>
+                            <field name="date_required_readonly"/>
+                        </group>
+                        <group>
+                            <field name="active" widget="boolean_toggle"/>
+                            <field name="color_tag"  
+                                decoration-success="color_tag == ('success')" 
+                                decoration-danger="color_tag == ('danger')" 
+                                decoration-warning="color_tag == ('warning')" 
+                                decoration-info="color_tag == ('info')" 
+                                decoration-muted="color_tag == ('muted')" />
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Action -->
+    <record id="action_purchase_request_type" model="ir.actions.act_window">
+        <field name="name">انواع درخواست خرید</field>
+        <field name="res_model">purchase.request.type</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <!-- Settings Menu -->
+    <menuitem id="menu_purchase_request_config"
+              name="Configuration"
+              parent="parent_menu_purchase_request"
+              groups="group_purchase_request_manager"
+              sequence="100"/>   <!-- Request Type Menu Item -->
+    <menuitem id="menu_purchase_request_type"
+              name="انواع درخواست خرید"
+              parent="menu_purchase_request_config"
+              groups="group_purchase_request_manager"
+              action="action_purchase_request_type"
+              sequence="10"/>
+</odoo>

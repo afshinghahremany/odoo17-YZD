@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Tree View -->
+    <record id="view_production_planning_tree" model="ir.ui.view">
+        <field name="name">production.planning.tree</field>
+        <field name="model">production.planning</field>
+        <field name="arch" type="xml">
+            <tree string="Production Planning">
+                <field name="name"/>
+                <field name="start_date"/>
+                <field name="end_date"/>
+                <field name="state"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- Form View -->
+    <record id="view_production_planning_form" model="ir.ui.view">
+        <field name="name">production.planning.form</field>
+        <field name="model">production.planning</field>
+        <field name="arch" type="xml">
+            <form no_log_note="1" readonly="state != 'draft'">
+                <header>
+                    <field name="state" widget="statusbar" statusbar_visible="draft,under_review,approved,cancelled"/>
+                    <button name="action_calculate_components" string="محاسبه مواد" type="object" class="btn-primary" invisible="state != 'draft'"/>
+                    <button name="action_send_for_review" string="ارسال برای تایید" type="object" class="oe_highlight" invisible="state != 'draft'"/>
+                    <button name="action_cancel" string="کنسل" type="object" class="btn-secondary" invisible="state != 'draft'"/>
+                    <button name="action_back_to_draft" string="بازگشت" type="object" class="btn-secondary" invisible="state != 'under_review'"/>
+                    <button name="action_approve" string="تایید" type="object" class="btn-primary" invisible="state != 'under_review'"/>
+                </header>
+                <sheet>
+                    <h1>
+                        <field name="name" readonly="1"/>
+                    </h1>
+                    <group>
+                        <group>
+                            <field name="start_date" string="تاریخ شروع" readonly="state != 'draft'"/>
+                            <field name="end_date" string="تاریخ پایان" readonly="state != 'draft'"/>
+                            <field name="active" string="فعال" readonly="state != 'draft'"/>
+                        </group>
+                        <group>
+                            <field name="operation_id" readonly="state != 'draft'" required="1" string="عملیات"/>
+                            <field name="work_days" readonly="1" string="تعداد روز کاری"/>
+                            <field name="production_capacity" readonly="1" string="ظرفیت تولید (تن)"/>
+                        </group>
+                    </group>
+                    <div class="oe_button_box" name="button_box">
+                        <button
+                            type="object"
+                            name="action_view_purchase_request_lines"
+                            class="oe_stat_button"
+                            icon="fa-shopping-cart"
+                            string="Purchase Requests"
+                            invisible ="purchase_request_line_count == 0">
+                            <field name="purchase_request_line_count" widget="statinfo" string="تعداد درخواست خرید"/>
+                        </button>
+                    </div>
+                    <notebook>
+                        <page string="برنامه محصولات" readonly="state != 'draft'">
+                            <div class="alert alert-info" role="alert" style="margin-bottom: 10px;">
+                                <b>راهنما:</b> درصد هر خط را وارد کنید. جمع درصدها باید دقیقاً ۱۰۰ باشد. مقدار تولید به صورت خودکار محاسبه می‌شود.
+                            </div>
+                            <field name="bom_line_ids">
+                                <tree editable="bottom" create="false" delete="false" decoration-danger="percent &lt; 0 or percent &gt; 100">
+                                    <field name="state" column_invisible="1"/>
+                                    <field name="bom_id" column_invisible="1"/>
+                                    <field name="product_tmpl_id" readonly="1" string="محصول"/>
+                                    <field name="code" readonly="1" string="کد"/>
+                                    <field name="percent" string="درصد" readonly="state != 'draft'"/>
+                                    <field name="produced_qty" readonly="1" string="مقدار تولید" sum="جمع کل"/>
+                                </tree>
+                            </field>
+                        </page>
+                        <page string="مواد اولیه مورد نیاز" name="required_components" readonly="state != 'draft'">
+                            <field name="component_line_ids">
+                                <tree editable="bottom" create="false" delete="false">
+                                    <field name="state" column_invisible="1"/>
+                                    <field name="product_id" string="کالا"/>
+                                    <field name="required_qty" string="مورد نیاز" readonly="1" sum="جمع کل"/>
+                                    <field name="factory_stock" string="در کارخانه" readonly="1"/>
+                                    <field name="supplier_stock" string="نزد تامین کننده" readonly="1" />
+                                    <field name="transit_stock" string="در راه" readonly="1" />
+                                    <field name="shortage_qty" string="کسری مواد" readonly="1"/>
+                                    <field name="factory_safety" string="احتیاطی کارخانه" readonly="1"/>
+                                    <field name="vendor_safety" string="احتیاطی تامین" readonly="1"/>
+                                    <field name="purchase_qty" string="خرید مورد نیاز" readonly="1"/>
+                                    <field name="document_qty" string="مقدار سند"  readonly="state != 'draft'"/>
+                                    <field name="needed_document_qty" string="کسری / مازاد" readonly="1"/>
+                                </tree>
+                            </field>
+                        </page>
+                        <!-- تب‌های دیگر -->
+                    </notebook>
+                </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids"/>
+                    <field name="activity_ids"/>
+                    <field name="message_ids"/>
+                </div>
+            </form>
+        </field>
+    </record>
+
+    <!-- Action -->
+    <record id="action_production_planning" model="ir.actions.act_window">
+        <field name="name">Production Planning</field>
+        <field name="res_model">production.planning</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <!-- Menu -->
+    <menuitem id="menu_production_planning"
+              name="برنامه ریزی تولید"
+              parent="planning.planning_menu_schedule_by_resource"
+              action="action_production_planning"
+              sequence="20"/>
+</odoo>

@@ -1,10 +1,9 @@
-<?xml version="1.0" ?>
-<!-- Copyright 2018-2019 ForgeFlow, S.L.
-     License LGPL-3.0 or later (https://www.gnu.org/licenses/lgpl-3.0) -->
+<?xml version="1.0" encoding="utf-8"?>
 <odoo>
     <record id="view_purchase_request_form" model="ir.ui.view">
         <field name="name">purchase.request.form</field>
         <field name="model">purchase.request</field>
+        
         <field name="arch" type="xml">
             <form string="Purchase Request">
                 <header>
@@ -127,17 +126,9 @@
                             <field name="assigned_to" readonly="is_editable == False" />
                         </group>
                         <group>
-                            <field
-                                name="origin"
-                                class="oe_inline"
-                                readonly="is_editable == False"
-                            />
-                            <field name="description" readonly="is_editable == False" />
-                            <field
-                                name="group_id"
-                                readonly="is_editable == False"
-                                groups="base.group_no_one"
-                            />
+                            <field name="origin" class="oe_inline" readonly="is_editable == False"/>
+                            <field name="request_type_id" options="{'no_create': True, 'no_open': True}" required="1"/>
+                            <field name="description" readonly="is_editable == False"/>
                         </group>
                         <group>
                             <field name="date_start" readonly="is_editable == False" />
@@ -161,9 +152,11 @@
                                     decoration-muted="cancelled == True"
                                     editable="bottom"
                                 >
+                                    <field name="qty_is_readonly" optional="hide" />
+                                    <field name="date_is_readonly" optional="hide" />
                                     <field name="product_id" />
                                     <field name="name" />
-                                    <field name="product_qty" />
+                                    <field name="product_qty" readonly="qty_is_readonly" />
                                     <field
                                         name="product_uom_category_id"
                                         column_invisible="1"
@@ -184,7 +177,7 @@
                                         options="{'product_field': 'product_id', 'business_domain': 'purchase_order'}"
                                         optional="hide"
                                     />
-                                    <field name="date_required" />
+                                    <field name="date_required" readonly="date_is_readonly" />
                                     <field name="estimated_cost" widget="monetary" />
                                     <field name="currency_id" column_invisible="1" />
                                     <field name="cancelled" column_invisible="1" />
@@ -245,6 +238,13 @@
                 name="Purchase Request"
             >
                 <field name="message_needaction" column_invisible="1" />
+                <field name="type_color" invisible="1"/>
+                <field name="request_type_id" widget="badge" 
+                    decoration-success="type_color == ('success')" 
+                    decoration-danger="type_color == ('danger')" 
+                    decoration-warning="type_color == ('warning')" 
+                    decoration-info="type_color == ('info')" 
+                    decoration-muted="type_color == ('muted')" />
                 <field name="name" />
                 <field name="date_start" />
                 <field name="requested_by" widget="many2one_avatar_user" />

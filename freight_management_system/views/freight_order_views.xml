@@ -6,11 +6,18 @@
         <field name="model">freight.order</field>
         <field name="arch" type="xml">
             <tree>
-                <field name="name"/>
-                <field name="type"/>
-                <field name="transport_type"/>
-                <field name="loading_port_id"/>
-                <field name="discharging_port_id"/>
+                <field name="immediate" string="فوری"/>
+                <field name="order_date" string="تاریخ"/>
+                <field name="name" string="شماره سفارش"/>           
+                <field name="type" string="نوع"/>
+                <field name="transport_type" string="نوع حمل"/>
+                <field name="origin" string="مرجع"/>
+                <field name="shipper_id" string="صادر کننده"/>
+                <field name="state" string="وضعیت"/>
+                <field name="consignee_id" optional="hide" string="دریافت کننده"/>  
+                <field name="agent_id" optional="hide" string="نماینده"/>
+                <field name="loading_port_id" optional="hide" string="محل بارگیری"/>
+                <field name="discharging_port_id" optional="hide" string="محل تخلیه"/>
             </tree>
         </field>
     </record>
@@ -25,7 +32,7 @@
                             string="Custom Clearance" type="object"
                             class="oe_highlight"
                             data-hotkey="w"
-                            invisible="clearance == 'True'"/>
+                            invisible="1"/>
                     <button name="action_submit" string="Submit"
                             type="object" class="oe_highlight"
                             data-hotkey="w" invisible="state != 'draft'"/>
@@ -53,16 +60,23 @@
                 </header>
                 <sheet>
                     <div class="oe_button_box" name="button_box">
-                        <button class="oe_stat_button" type="object"
-                                name="get_custom_clearance"
-                                icon="fa-id-card-o">
-                            <field string="Clearance" name="clearance_count"
+                        <button class="oe_stat_button" name="document_view"
+                                type="object" icon="fa-pencil-square-o">
+                            <field string="اسناد حمل" name="document_count"
                                    widget="statinfo"/>
                         </button>
                         <button class="oe_stat_button" type="object"
                                 name="get_invoice"
-                                icon="fa-pencil-square-o">
+                                icon="fa-pencil-square-o"
+                                invisible="1">
                             <field string="Invoice" name="invoice_count"
+                                   widget="statinfo"/>
+                        </button>
+                        <button class="oe_stat_button" type="object"
+                                name="get_custom_clearance"
+                                icon="fa-id-card-o"
+                                invisible="1">
+                            <field string="Clearance" name="clearance_count"
                                    widget="statinfo"/>
                         </button>
                     </div>
@@ -73,15 +87,17 @@
                     </div>
                     <group>
                         <group>
-                            <field name="shipper_id"/>
+                            <field name="immediate" invisible="1"/>
+                            <field name="shipper_id" string="صادر کننده" invisible="origin != False"/>
                             <field name="consignee_id"/>
-                            <field name="order_date"/>
+                            <field name="order_date" string="تاریخ" readonly="origin == False"/>
                             <field name="company_id" invisible="1"/>
                         </group>
                         <group>
                             <field name="clearance" invisible="1"/>
-                            <field name="type"/>
-                            <field name="transport_type"/>
+                            <field name="origin" readonly="1"/>
+                            <field name="type" string="نوع"  readonly="origin != False"/>
+                            <field name="transport_type" invisible="1"/>
                             <field name="land_type"
                                    invisible="transport_type != 'land'"/>
                             <field name="water_type"
@@ -90,18 +106,18 @@
                     </group>
                     <group>
                         <group>
-                            <field name="loading_port_id"/>
+                            <field name="loading_port_id" invisible="1"/>
                         </group>
                         <group>
-                            <field name="discharging_port_id"/>
+                            <field name="discharging_port_id" invisible="1"/>
                         </group>
                     </group>
                     <group>
                         <group>
-                            <field name="agent_id"/>
+                            <field name="agent_id" string="نماینده" invisible="origin != False"/>
                         </group>
                         <group>
-                            <field name="expected_date"/>
+                            <field name="expected_date" invisible="1"/>
                         </group>
                     </group>
                     <notebook>
@@ -109,14 +125,15 @@
                             <field name="order_ids">
                                 <tree string="Order Lines"
                                       editable="bottom">
-                                    <field name="container_id"/>
+                                    <field name="freight_origin" column_invisible="1"/>
+                                    <field name="container_id" />
                                     <field name="product_id"/>
-                                    <field name="billing_type"/>
-                                    <field name="pricing_id"/>
-                                    <field name="volume"
-                                           invisible="billing_type != 'volume'"/>
-                                    <field name="weight"
-                                           invisible="billing_type != 'weight'"/>
+                                    <field name="product_uom_id"/>
+                                    <field name="billing_type" column_invisible="1"/>
+                                    <field name="pricing_id" column_invisible="1"/>
+                                    <field name="volume" invisible="billing_type != 'volume'" column_invisible="1"/>
+                                    <field name="weight" invisible="billing_type != 'weight'" column_invisible="1"/>
+                                    <field name="quantity" readonly="freight_origin"/>
                                     <field name="price"/>
                                     <field name="total_price"/>
                                 </tree>
@@ -138,7 +155,7 @@
                                        nolabel="1"/>
                             </group>
                         </page>
-                        <page string="Routes">
+                        <page string="Routes" invisible="1">
                             <field name="route_ids">
                                 <tree string="Routes" editable="bottom">
                                     <field name="routes_id"/>
@@ -156,7 +173,7 @@
                                 <field name="total_route_sale" nolabel="1"/>
                             </group>
                         </page>
-                        <page string="Services">
+                        <page string="Services" invisible="1">
                             <field name="service_ids">
                                 <tree string="Services" editable="bottom">
                                     <field name="partner_id"/>
@@ -175,7 +192,7 @@
                                        nolabel="1"/>
                             </group>
                         </page>
-                        <page string="Track">
+                        <page string="Track" invisible="1">
                             <field name="track_ids">
                                 <tree string="Services" editable="bottom"
                                       create="0">
@@ -189,6 +206,11 @@
                         </page>
                     </notebook>
                 </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids" widget="mail_followers"/>
+                    <field name="activity_ids" widget="mail_activity"/>
+                    <field name="message_ids" widget="mail_thread"/>
+                </div>
             </form>
         </field>
     </record>
@@ -204,11 +226,21 @@
             </p>
         </field>
     </record>
+        <record id="freight_order_view_form_ribbon" model="ir.ui.view">
+        <field name="name">freight.order.view.form.ribbon</field>
+        <field name="model">freight.order</field>
+        <field name="inherit_id" ref="freight_management_system.freight_order_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//div[hasclass('oe_button_box')]" position="before">
+                <widget name="web_ribbon" title="فوری" invisible="not immediate" bg_color="bg-danger" string="فوری"/>   
+            </xpath>
+        </field>
+    </record>
     <!--Defined menus-->
-    <menuitem id="freight_order_menu_root" name="Freight Management"
+    <menuitem id="freight_order_menu_root" name="مدیریت حمل و نقل"
               web_icon="freight_management_system,static/description/icon.png"
               sequence="4"/>
-    <menuitem id="freight_order_menu_shipping" name="Shipping"
+    <menuitem id="freight_order_menu_shipping" name="دستور حمل و نقل"
               parent="freight_order_menu_root" sequence="2"
               action="freight_order_action"/>
 </odoo>

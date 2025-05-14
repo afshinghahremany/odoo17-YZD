@@ -1,0 +1,34 @@
+<odoo>
+    <record id="view_product_form_inherit_yzd" model="ir.ui.view">
+        <field name="name">product.template.form.inherit.yzd</field>
+        <field name="model">product.template</field>
+        <field name="inherit_id" ref="product.product_template_form_view"/>
+        <field name="arch" type="xml">
+            <!-- حذف هرگونه شرط مخفی بودن از sale_delay -->
+            <field name="sale_delay" position="attributes">
+                <attribute name="invisible">0</attribute>
+            </field>
+            <!-- اگر فیلد در فرم نبود، آن را اضافه کن -->
+            <xpath expr="//page[@name='sales']" position="inside">
+                <group>
+                    <field name="sale_delay"/>
+                </group>
+            </xpath>
+        </field>
+    </record>
+    <record id="view_product_form_inherit_yzd_purchase" model="ir.ui.view">
+        <field name="name">product.template.form.inherit.yzd.purchase</field>
+        <field name="model">product.template</field>
+        <field name="inherit_id" ref="product.product_template_form_view"/>
+        <field name="arch" type="xml">
+            <xpath expr="//page[@name='purchase']" position="inside">
+                <group>
+                    <group>
+                        <field name="vendor_lead_time" string="مدت زمان تامین"/>
+                        <field name="factory_lead_time" string="مدت زمان کارخانه"/>
+                    </group>
+                </group>
+            </xpath>
+        </field>
+    </record>
+</odoo>

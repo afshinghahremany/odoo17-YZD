@@ -15,3 +15,6 @@ access_freight_track_user,access.freight.track.user,model_freight_track,freight_
 access_freight_order_track_user,access.freight.order.track.user,model_freight_order_track,freight_management_system.group_freight,1,1,1,1
 access_clearance_revision_user,access.clearance.revision.user,model_clearance_revision,freight_management_system.group_freight,1,1,1,1
 access_custom_clearance_revision_user,access.custom.clearance.revision.user,model_custom_clearance_revision,freight_management_system.group_freight,1,1,1,1
+access_freight_order_documents_user,access.freight.order.documents.user,model_freight_order_documents,freight_management_system.group_freight,1,1,1,1
+access_freight_order_document_billoflading_user,access.freight.order.document.billoflading.user,model_freight_order_document_billoflading,freight_management_system.group_freight,1,1,1,1
+access_freight_order_document_baskol_user,access.freight.order.document.baskol.user,model_freight_order_document_baskol,freight_management_system.group_freight,1,1,1,1

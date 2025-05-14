@@ -1,3 +1,8 @@
 id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
-access_planning_slot_bom_line_all,planning.slot.bom.line.all,model_planning_slot_bom_line,,1,1,1,1
-access_planning_slot_component_line_all,planning.slot.component.line.all,model_planning_slot_component_line,,1,1,1,1
+access_production_planning,access_production_planning,model_production_planning,,1,1,1,1
+access_production_bom_line,access_production_bom_line,model_production_bom_line,,1,1,1,1
+access_production_component_line,access_production_component_line,model_production_component_line,,1,1,1,1
+access_production_planning_return_wizard,access_production_planning_return_wizard,model_production_planning_return_wizard,,1,1,1,1
+access_transport_planning,transport.planning,model_transport_planning,,1,1,1,1
+access_transport_planning_line,transport.planning.line,model_transport_planning_line,,1,1,1,1
+access_transport_planning_return_wizard,transport.planning.return.wizard,model_transport_planning_return_wizard,,1,1,1,1

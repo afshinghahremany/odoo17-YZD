@@ -25,7 +25,7 @@
                 <field name="date_required" />
                 <field name="estimated_cost" widget="monetary" />
                 <field name="currency_id" column_invisible="1" />
-                <field name="purchased_qty" />
+                <field name="purchased_qty" readonly="1" />
                 <field
                     name="purchase_state"
                     widget="badge"
@@ -37,7 +37,7 @@
                 />
                 <field name="product_id" />
                 <field name="name" />
-                <field name="product_qty" />
+                <field name="product_qty" readonly="1" />
                 <field name="product_uom_category_id" column_invisible="1" />
                 <field name="product_uom_id" groups="uom.group_uom" />
                 <field
@@ -103,7 +103,7 @@
                                 <field
                                     name="product_qty"
                                     class="oe_inline"
-                                    readonly="is_editable == False"
+                                    readonly="1"
                                 />
                                 <field name="product_uom_category_id" invisible="1" />
                                 <field

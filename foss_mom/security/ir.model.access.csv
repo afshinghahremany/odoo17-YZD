@@ -1,0 +1,4 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_mom_task_line,Task Line Manager,model_task_line,base.group_user,1,1,1,1
+access_survey_survey_meeting,survey.survey.meeting,model_survey_survey,base.group_user,1,1,1,1
+access_survey_user_input_meeting,survey.user.input.meeting,model_survey_user_input,base.group_user,1,1,1,1

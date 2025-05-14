@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+    	<!-- MOM Reports -->
+
+            <!--MOM report paper format -->
+            <record id="paperformat_foss_mom_report" model="report.paperformat">
+            <field name="name">Minutes Of Meeting</field>
+            <field name="default" eval="True" />
+            <field name="format">custom</field>
+            <field name="orientation">Portrait</field>
+            <field name="margin_top">40</field>
+            <field name="margin_bottom">32</field>
+            <field name="margin_left">7</field>
+            <field name="margin_right">7</field>
+            <field name="header_line" eval="False" />
+            <field name="header_spacing">30</field>
+            <field name="dpi">90</field>
+        </record>
+
+
+        <record id="action_report_foss_mom" model="ir.actions.report">
+            <field name="name">Minutes of meeting</field>
+            <field name="model">calendar.event</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="paperformat_id" ref="foss_mom.paperformat_foss_mom_report"/>
+            <field name="report_name">foss_mom.report_foss_mom</field>
+            <field name="report_file">foss_mom.report_foss_mom</field>
+            <field name="binding_model_id" eval="False"/>
+            <field name="binding_type">report</field>
+        </record>
+
+    </data>
+</odoo>

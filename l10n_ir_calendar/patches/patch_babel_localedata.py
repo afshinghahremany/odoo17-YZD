@@ -53,7 +53,6 @@ def load(name, merge_inherited=True):
                         parent = '_'.join(parts[:-1])
                 data = load(parent).copy()
             filename = babel_localedata.resolve_locale_filename(name)
-               
             with open(filename, 'rb') as fileobj:
                 if name != 'root' and merge_inherited:
                     babel_localedata.merge(data, pickle.load(fileobj))

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_calendar_event_form_inherit_survey" model="ir.ui.view">
+        <field name="name">calendar.event.form.inherit.survey</field>
+        <field name="model">calendar.event</field>
+        <field name="inherit_id" ref="calendar.view_calendar_event_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//header" position="inside">
+                <button name="action_create_survey" 
+                        string="ایجاد نظر سنجی" 
+                        type="object" 
+                        class="oe_highlight"
+                        invisible="survey_id"/>
+                <button name="action_view_survey" 
+                        string="مشاهده نظر سنجی" 
+                        type="object"
+                        invisible="not survey_id"/>
+                <button name="action_create_live_meeting"
+                        string="ایجاد جلسه زنده و نظرسنجی"
+                        type="object"
+                        class="oe_highlight"
+                        invisible="1"/>
+            </xpath>
+            <xpath expr="//notebook" position="inside">
+                <page string="نظر سنجی" invisible="not survey_id">
+                    <group>
+                        <field name="survey_id" readonly="1"/>
+                        <field name="survey_required"/>
+                    </group>
+                    <field name="survey_user_input_ids" readonly="1">
+                        <tree>
+                            <field name="partner_id"/>
+                            <field name="create_date"/>
+                            <field name="state"/>
+                        </tree>
+                    </field>
+                </page>
+            </xpath>
+        </field>
+    </record>
+</odoo>

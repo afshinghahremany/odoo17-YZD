@@ -1,0 +1,12 @@
+<odoo>
+    <record id="view_bom_form_inherit_operation" model="ir.ui.view">
+        <field name="name">mrp.bom.form.inherit.operation</field>
+        <field name="model">mrp.bom</field>
+        <field name="inherit_id" ref="mrp.mrp_bom_form_view"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='code']" position="after">
+                <field name="operation_id"/>
+            </xpath>
+        </field>
+    </record>
+</odoo>

@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record model="ir.ui.view" id="calendar_view_inherit">
+        <field name="name">Calendar View Inherit</field>
+        <field name="model">calendar.event</field>
+        <field name="inherit_id" ref="calendar.view_calendar_event_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//form/sheet" position="before">
+                <header>
+                    <button name="print_mom" string="Print MOM" type="object" class="oe_highlight"/>
+                    <button name="email_mom" string="Email MOM" type="object" class="oe_highlight"/>
+                </header>
+            </xpath>
+            <xpath expr="//field[@name='location']"  position="after">
+                <field name="project_id"/>
+                <field name="company_id" readonly="1" force_save='1' invisible="1"/>        
+            </xpath>
+            <group>
+                <label for="discussion" invisible="1"/>
+                <field name="discussion" invisible="1"/>
+                <label for="action_items" invisible="1"/>
+                <field name="action_items" invisible="1"/>
+            </group>
+            <group>
+                <button name="create_tasks" string="لیست دستورات جلسه" type="object" style="background-color: #7C7BAD;color : #FFFFFF;"/>
+                    <label for="task_line" string=""/>
+                    <field name="task_line" string="">
+                        <tree editable="bottom">
+                            <field name="name" string="مصوبات" required="1"/>
+                            <field name="description" string="توضیحات"/>
+                            <field name="user_id" string="مسئول اجرا" required="1"/>
+                            <field name="date_deadline" string="تاریخ تحویل"/>
+                            <field name="follow_user_id" string="تحویل گیرنده" required="1"/>
+                            <field name="stage_id" string="وضعیت" force_save="1" readonly="1"/>
+                            <field name="task_id" string="شماره تسک" force_save="1" readonly="1" />
+                        </tree>
+                    </field>
+            </group>
+            <xpath expr="//field[@name='description']" position="attributes">
+                <attribute name="string">توضیحات جلسه</attribute>
+            </xpath>
+            <xpath expr="//field[@name='user_id']" position="attributes">
+                <attribute name="string">دبیر جلسه</attribute>
+            </xpath>
+            <xpath expr="//field[@name='categ_ids']" position="attributes">
+                <attribute name="string">دسته بندی جلسه</attribute>
+            </xpath>
+            <xpath expr="//field[@name='project_id']" position="attributes">
+                <attribute name="string">پروژه</attribute>
+            </xpath>
+            <xpath expr="//field[@name='location']" position="attributes">
+                <attribute name="string">مکان جلسه</attribute>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="view_calendar_event_search_inherit_mom" model="ir.ui.view">
+        <field name="name">calendar.event.search.inherit.mom</field>
+        <field name="model">calendar.event</field>
+        <field name="inherit_id" ref="calendar.view_calendar_event_search"/>
+        <field name="arch" type="xml">
+            <field name="show_as" position="after">
+                <field name="project_id"/>
+            </field>
+            <xpath expr="/search/group/filter[@name='responsible']" position="after">
+                <filter string="Project" name="groupby_project_id" domain="[]" context="{'group_by': 'project_id'}"/>
+            </xpath>
+        </field>
+    </record>
+</odoo>

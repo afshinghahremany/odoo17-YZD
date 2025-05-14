@@ -172,7 +172,19 @@ class PurchaseRequestLine(models.Model):
         domain=[("purchase_ok", "=", True)],
         tracking=True,
     )
-
+    qty_is_readonly = fields.Boolean(
+        compute='_compute_field_readonly_status',
+        store=False,
+    )
+    date_is_readonly = fields.Boolean(
+        compute='_compute_field_readonly_status',
+        store=False,
+    )
+    @api.depends('request_id.request_type_id.qty_readonly')
+    def _compute_field_readonly_status(self):
+        for record in self:
+            record.qty_is_readonly = bool(record.request_id.request_type_id.qty_readonly)
+            record.date_is_readonly = bool(record.request_id.request_type_id.date_required_readonly)
     @api.depends(
         "purchase_request_allocation_ids",
         "purchase_request_allocation_ids.stock_move_id.state",

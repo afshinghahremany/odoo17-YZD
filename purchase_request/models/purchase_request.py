@@ -157,6 +157,13 @@ class PurchaseRequest(models.Model):
         string="Total Estimated Cost",
         store=True,
     )
+    request_type_id = fields.Many2one(
+        'purchase.request.type',
+        string='نوع درخواست',
+        required=True,
+        domain="[('manual_creation', '=', True)]"
+    )
+    type_color = fields.Selection(related='request_type_id.color_tag', store=True)
 
     @api.depends("line_ids", "line_ids.estimated_cost")
     def _compute_estimated_cost(self):

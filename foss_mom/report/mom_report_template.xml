@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+<template id="report_foss_mom_document">
+    <t t-call="web.html_container">
+        <t t-call="foss_mom.external_layout_common_header">
+            <t t-if="o and 'company_id' in o">
+                <t t-set="company" t-value="o.company_id" ></t>
+                </t> 
+                <t t-if="not o or not 'company_id' in o">
+                <t t-set="company" t-value="res_company"></t>
+            </t>
+            <t t-foreach="docs" t-as="o">
+                <div class="page" style="font-size:15px;width:980px;">
+                    <br/>
+                    <br/>
+                    <h1 align="center">
+                        <b><t t-esc="o.name"/></b>
+                    </h1>
+                    <br/>
+                    <table class="table table-bordered" style="border:10px black; border-color:#000000;" width="100%">
+                        <tr>
+                            <td colspan="6"><b>Meeting Date</b></td>
+                            <td colspan="6">
+                                <t t-if="o.start">
+                                    <t t-esc="o.start" t-options="{'widget': 'date'}"/><br/>
+                                </t>                           
+                            </td>
+                            <td colspan="6"><b>Meeting Location</b></td>
+                            <td colspan="6">
+                                <t t-if="o.location">
+                                    <t t-esc="o.location"/><br/>
+                                </t>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="6"><b>Meeting Organizer</b></td>
+                            <td colspan="6">
+                                <t t-if="o.user_id">
+                                    <t t-esc="o.user_id.name"/><br/>
+                                </t>                         
+                            </td>
+                            <td colspan="6"><b>Project</b></td>
+                            <td colspan="6">
+                                <t t-if="o.project_id">
+                                    <t t-esc="o.project_id.name"/><br/>
+                                </t>
+                            </td>
+                        </tr>
+                    </table>
+                    <table class="table table-bordered" style="border:10px black; border-color:#000000;" width="100%">
+                        <thead>
+                            <tr>
+                               <td colspan="12" align="center"><b>Meeting Attendees</b></td>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr colspan="12">
+                                <td>
+                                    <span t-field="o.partner_ids"/>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <table class="table table-bordered" style="border:10px black; border-color:#000000;" width="100%">
+                        <thead>
+                            <tr>
+                                <td colspan="12"><b>Description of the Meeting</b></td>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td colspan="12">
+                                    <span t-field="o.description"/>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <table class="table table-bordered" style="border:10px black; border-color:#000000;" width="100%">
+                        <thead>
+                            <tr>
+                                <td colspan="12"><b>Discussion</b></td>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td colspan="12">
+                                    <span t-field="o.discussion"/>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <table class="table table-bordered" style="border:10px black; border-color:#000000;" width="100%">
+                        <thead>
+                            <tr>
+                                <td colspan="12"><b>Action Items</b></td>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td colspan="12">
+                                    <span t-field="o.action_items"/>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <p style="page-break-after:always"></p>
+            </t>
+        </t> 
+    </t>
+</template>
+<template id="report_foss_mom">
+    <t t-call="web.html_container">
+        <t t-foreach="docs" t-as="o">
+            <t t-call="foss_mom.report_foss_mom_document"/>
+        </t>
+    </t>
+</template>
+</odoo>

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Tree view of freight order document baskol-->
+    <record id="view_freight_order_document_baskol_tree" model="ir.ui.view">
+        <field name="name">freight.order.document.baskol.tree</field>
+        <field name="model">freight.order.document.baskol</field>
+        <field name="arch" type="xml">
+            <tree string="قبض باسکول">
+                <field name="name" string="شماره قبض باسکول"/>
+                <field name="date_of_issue" string="تاریخ صدور"/>
+                <field name="empty_weight" string="وزن خالی"/>
+                <field name="full_weight" string="وزن کل"/>
+                <field name="net_weight" string="وزن خالی"/>
+            </tree>
+        </field>
+    </record>
+    <!-- Form view of freight order document baskol-->
+    <record id="view_freight_order_document_baskol_form" model="ir.ui.view">
+        <field name="name">freight.order.document.baskol.form</field>
+        <field name="model">freight.order.document.baskol</field>
+        <field name="arch" type="xml">
+            <form string="قبض باسکول">
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="name" string="شماره قبض باسکول"/>
+                            <field name="date_of_issue" string="تاریخ صدور"/>
+                        </group>
+                        <group>
+                            <field name="empty_weight" string="وزن خالی"/>
+                            <field name="full_weight" string="وزن پر"/>
+                            <field name="net_weight" string="وزن خالص"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <!-- Menu action of freight order document baskol-->
+    <record id="freight_order_document_baskol_action" model="ir.actions.act_window">
+        <field name="name">مشخصات قبض باسکول</field>
+        <field name="res_model">freight.order.document.baskol</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+</odoo>

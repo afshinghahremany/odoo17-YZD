@@ -1,0 +1,12 @@
+<odoo>
+  <record id="view_product_category_form_inherit_yzd" model="ir.ui.view">
+    <field name="name">product.category.form.inherit.yzd</field>
+    <field name="model">product.category</field>
+    <field name="inherit_id" ref="product.product_category_form_view"/>
+    <field name="arch" type="xml">
+      <xpath expr="//field[@name='property_stock_account_input_categ_id']" position="after">
+        <field name="stock_others_trust_account_id"/>
+      </xpath>
+    </field>
+  </record>
+</odoo>

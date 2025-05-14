@@ -1,0 +1,8 @@
+/* تغییر پهنای یک ستون خاص در tree view */
+.o_list_view .custom_column_width {
+    min-width: 2px !important;
+    max-width: 2px !important;
+    white-space: nowrap;
+    color: green;
+    font-weight: bold;
+}

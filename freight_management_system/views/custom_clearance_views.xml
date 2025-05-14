@@ -74,11 +74,12 @@
             </p>
         </field>
     </record>
-    <!--    Menu for Custom Clearance-->
+    <!--    Menu for Custom Clearance
     <menuitem id="custom_clearance_menu_root" name="Custom"
               parent="freight_order_menu_root"
               sequence="2"/>
     <menuitem id="custom_clearance_menu" name="Custom Clearance"
               parent="custom_clearance_menu_root" sequence="2"
               action="custom_clearance_action"/>
+    -->
 </odoo>

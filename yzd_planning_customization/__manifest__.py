@@ -1,17 +1,41 @@
 {
-    'name': 'YZD Planning Customization',
-    'version': '17.0.1.0.0',
-    'summary': 'Custom planning slot filters to show only material resources',
-    'depends': ['planning', 'resource'],
+    'name': 'Production Planning Customization',
+    'version': '1.0',
+    'category': 'Manufacturing',
+    'summary': 'Customization for Production Planning',
+    'description': """
+        Customization for Production Planning including:
+        - Production Planning Model
+        - Tree and Form Views
+    """,
     'author': 'Your Company',
-    'depends': ['yzd_stock_tank'],
-    'category': 'Planning',
+    'website': 'https://www.yourcompany.com',
+    'depends': [
+        'base',
+        'planning',
+        'mrp',
+        'mail',
+        'stock',
+        'purchase_request',
+    ],
     'data': [
-        'views/yzd_planning_slot_views.xml',
-        'views/yzd_mrp_bom_views.xml',
-        'views/yzd_mrp_settings_views.xml',
         'security/ir.model.access.csv',
+        'data/ir_sequence_data.xml',
+        'data/transport_planning_sequence.xml',
+        'views/production_planning_views.xml',
+        'views/planning_config_settings_views.xml',
+        'views/mrp_bom_views.xml',
+        'views/product_template_views.xml',
+        'views/production_planning_return_wizard_views.xml',
+        'views/transport_planning_views.xml',
+        'views/product_category_views.xml',
     ],
     'installable': True,
     'application': False,
+    'auto_install': False,
+    'assets': {
+        'web.assets_backend': [
+            'yzd_planning_customization/static/src/css/style.css',
+        ],
+    },
 }

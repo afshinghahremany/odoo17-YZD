@@ -415,7 +415,7 @@
                 date_start="start_datetime"
                 date_stop="end_datetime"
                 default_group_by="resource_id"
-                default_scale="week"
+                default_scale="year"
                 color="color"
                 plan="false"
                 string="Schedule"
@@ -586,7 +586,6 @@
         <field name="name">My Planning</field>
         <field name="res_model">planning.slot</field>
         <field name="view_mode">calendar,gantt,tree,form,kanban</field>
-        <field name="context">{'search_default_my_shifts': 1, 'my_planning_action': 1, 'search_default_open_shifts': 1, 'search_default_unwanted_shifts': 1, 'planning_expand_resource': 1, 'planning_expand_role': 1}</field>
         <field name="help" type="html">
             <p class="o_view_nocontent_smiling_face">
                 No shifts found. Let's create one!
@@ -627,7 +626,6 @@
         <field name="name">My Planning</field>
         <field name="res_model">planning.slot</field>
         <field name="view_mode">gantt,calendar,tree,form</field>
-        <field name="context">{'search_default_open_shifts': 1, 'search_default_unwanted_shifts': 1, 'search_default_my_shifts': 1, 'default_resource_id': False, 'my_planning_action': 1}</field>
     </record>
 
         <record id="planning_action_open_shift_view_gantt" model="ir.actions.act_window.view">

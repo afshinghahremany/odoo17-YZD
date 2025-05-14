@@ -12,6 +12,11 @@
             <field name="name">Freight Manager</field>
             <field name="category_id" ref="module_category_freight_management"/>
         </record>
+        <!-- اضافه کردن گروه جدید برای تایید دستور حمل بار -->
+        <record id="group_freight_confirm_transfer" model="res.groups">
+            <field name="name">تایید دستور حمل بار</field>
+            <field name="category_id" ref="module_category_freight_management"/>
+        </record>
         <!--        Record rules for company-->
         <record id="freight_order_rule_multi_company" model="ir.rule">
             <field name="name">Freight order multi-company</field>

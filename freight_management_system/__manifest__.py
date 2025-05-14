@@ -31,11 +31,12 @@
     'website': 'https://www.cybrosys.com',
     'company': 'Cybrosys Techno Solutions',
     'maintainer': 'Cybrosys Techno Solutions',
-    'depends': ['base', 'product', 'account'],
+    'depends': ['base', 'product', 'account', 'yzd_planning_customization', 'mail', 'purchase_request'],
     'data': [
         'security/freight_security.xml',
         'security/ir.model.access.csv',
         'data/ir_sequence_data.xml',
+        'data/freight_sequence.xml',
         'data/freight_routes_data.xml',
         'views/freight_order_views.xml',
         'views/freight_port_views.xml',
@@ -43,6 +44,9 @@
         'views/custom_clearance_views.xml',
         'views/freight_service_views.xml',
         'views/order_track_views.xml',
+        'views/freight_order_documents_views.xml',
+        'views/freight_order_document_billoflading_views.xml',
+        'views/freight_order_document_baskol_views.xml',
         'report/freight_report_templates.xml',
         'report/tracking_report_templates.xml',
         'wizard/custom_clearance_revision_views.xml'

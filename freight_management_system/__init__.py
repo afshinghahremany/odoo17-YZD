@@ -19,5 +19,5 @@
 #    If not, see <http://www.gnu.org/licenses/>.
 #
 ################################################################################
-from . import model
+from . import models
 from . import wizard

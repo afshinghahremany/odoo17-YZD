@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Tree view of freight order document bill of lading-->
+    <record id="view_freight_order_document_billoflading_tree" model="ir.ui.view">
+        <field name="name">freight.order.document.billoflading.tree</field>
+        <field name="model">freight.order.document.billoflading</field>
+        <field name="arch" type="xml">
+            <tree string="مشخصات بارنامه">
+                <field name="name" string="شماره بارنامه"/>
+                <field name="date_of_issue" string="تاریخ صدور"/>
+                <field name="driver_name" string="نام راننده"/>
+                <field name="driver_phone" string="شماره تلفن راننده"/>
+                <field name="vehicle_number" string="پلاک خودرو"/>
+                <field name="driver_national_code" string="کد ملی راننده"/>
+                <field name="delivery_company_id" string="شرکت حمل کننده" optional="hide"/> 
+                <field name="vehicle_number_type" string="نوع پلاک" optional="hide"/>
+                <field name="reference_number" string="شماره مرجع" optional="hide"/>    
+                <field name="arrival_date" string="پیش بینی ورود" optional="hide"/>
+            </tree>
+        </field>
+    </record>
+    <!-- Form view of freight order document bill of lading-->
+    <record id="view_freight_order_document_billoflading_form" model="ir.ui.view">
+        <field name="name">freight.order.document.billoflading.form</field>
+        <field name="model">freight.order.document.billoflading</field>
+        <field name="arch" type="xml">
+            <form string="مشخصات بارنامه">
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="name" string="شماره بارنامه"/>
+                            <field name="date_of_issue" string="تاریخ صدور"/>
+                            <field name="driver_name" string="نام راننده"/>
+                            <field name="driver_phone" string="شماره تلفن راننده"/>
+                             <field name="vehicle_number_type" string="نوع پلاک"/>
+                            <field name="vehicle_number" string="پلاک خودرو"/>
+                        </group>
+                        <group>
+                           <field name="driver_national_code" string="کد ملی راننده"/>
+                            <field name="reference_number" string="شماره مرجع"/>
+                            <field name="arrival_date" string="پیش بینی ورود"/>
+                            <field name="delivery_company_id" string="شرکت حمل کننده"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <!-- Menu action of freight order document bill of lading-->
+    <record id="freight_order_document_billoflading_action" model="ir.actions.act_window">
+        <field name="name">مشخصات بارنامه</field>
+        <field name="res_model">freight.order.document.billoflading</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+</odoo>
